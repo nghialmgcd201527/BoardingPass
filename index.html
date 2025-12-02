@@ -17,7 +17,7 @@
       --dark-text: #3c2f2f;
       --muted-text: #7b6b6b;
       --card-bg: #ffffff;
-      --shadow-soft: 0 20px 45px rgba(0, 0, 0, 0.16);
+      --shadow-soft: 0 22px 55px rgba(0, 0, 0, 0.18);
       --radius-large: 28px;
       --transition-fast: 0.25s ease;
     }
@@ -72,12 +72,12 @@
       100% { transform: translateY(-140vh); opacity: 0; }
     }
 
-    /* main card ----------------------------------------------- */
+    /* main wrapper -------------------------------------------- */
     .cover-wrapper {
       position: relative;
       z-index: 2;
       width: 100%;
-      max-width: 440px;
+      max-width: 1120px;
     }
 
     .cover-card {
@@ -85,11 +85,10 @@
       border-radius: var(--radius-large);
       box-shadow: var(--shadow-soft);
       border: 1px solid rgba(255, 255, 255, 0.9);
-      padding: 1.6rem 1.5rem 1.8rem;
       position: relative;
       overflow: hidden;
       opacity: 0;
-      transform: translateY(20px) scale(0.97);
+      transform: translateY(22px) scale(0.97);
       animation: fadeUp 0.9s ease-out forwards;
     }
 
@@ -107,6 +106,39 @@
     .cover-inner {
       position: relative;
       z-index: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* layout cho 2 cột ngang trên màn hình rộng */
+    @media (min-width: 900px) {
+      .cover-inner {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+        min-height: 420px;
+      }
+    }
+
+    .cover-left {
+      position: relative;
+      padding: 1.5rem 1.5rem 0.75rem;
+    }
+
+    .cover-right {
+      position: relative;
+      padding: 1.5rem 1.7rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    @media (max-width: 899.98px) {
+      .cover-left {
+        padding: 1.6rem 1.5rem 0.4rem;
+      }
+      .cover-right {
+        padding: 1.2rem 1.5rem 1.6rem;
+      }
     }
 
     .photo-wrap {
@@ -115,7 +147,14 @@
       position: relative;
       background: #f3d7df;
       box-shadow: 0 16px 32px rgba(0,0,0,0.18);
-      margin-bottom: 1.4rem;
+      height: 100%;
+      min-height: 220px;
+    }
+
+    @media (min-width: 900px) {
+      .photo-wrap {
+        height: 100%;
+      }
     }
 
     .photo-wrap::after {
@@ -140,12 +179,13 @@
     }
 
     .title-names {
-      font-family: "Great Vibes", cursive;
-      font-size: 2.6rem;
-      text-align: center;
-      line-height: 1.15;
-      margin-bottom: 0.2rem;
-      color: var(--dark-text);
+    font-family: "Great Vibes", cursive;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 1.15;
+    margin-bottom: 0.2rem;
+    color: var(--dark-text);
+    white-space: nowrap;        /* luôn giữ trên 1 hàng */
     }
 
     .title-names span.and {
@@ -160,26 +200,44 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--rose-gold);
-      margin-bottom: 1.3rem;
+      margin-bottom: 1.2rem;
+    }
+
+    @media (min-width: 900px) {
+      .title-names {
+        text-align: left;
+        font-size: 2.7rem;
+      }
+      .names-sub {
+        text-align: left;
+      }
     }
 
     .question {
       font-size: 1.05rem;
       text-align: center;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.35rem;
     }
 
     .question-sub {
       font-size: 0.86rem;
       text-align: center;
       color: var(--muted-text);
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.3rem;
+    }
+
+    @media (min-width: 900px) {
+      .question,
+      .question-sub {
+        text-align: left;
+        max-width: 420px;
+      }
     }
 
     /* buttons area -------------------------------------------- */
     .choice-area {
-      position: relative;
-      min-height: 90px;
+      position: relative;           /* vùng chứa cho nút No chạy */
+      min-height: 110px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -187,6 +245,13 @@
       row-gap: 0.75rem;
       flex-wrap: wrap;
       margin-bottom: 0.4rem;
+    }
+
+    @media (min-width: 900px) {
+      .choice-area {
+        justify-content: flex-start;
+        min-height: 120px;
+      }
     }
 
     .btn {
@@ -234,11 +299,11 @@
       background: #fff7fb;
     }
 
-    /* khi bắt đầu chạy: cố định trong viewport, không ra khỏi màn hình */
+    /* khi bắt đầu chạy: chạy trong vùng choice-area */
     .btn-no.floating {
-      position: fixed;
-      z-index: 999;
-      transition: left 0.25s ease-out, top 0.25s ease-out;
+      position: absolute;          /* absolute trong choice-area */
+      z-index: 5;
+      transition: left 0.22s ease-out, top 0.22s ease-out;
     }
 
     .hint {
@@ -248,10 +313,17 @@
       margin-bottom: 0.4rem;
     }
 
+    @media (min-width: 900px) {
+      .hint {
+        text-align: left;
+      }
+    }
+
     .footer-mini {
       text-align: center;
       font-size: 0.75rem;
       color: var(--muted-text);
+      padding: 0 1.2rem 1.1rem;
     }
 
     .footer-mini span.names {
@@ -259,6 +331,13 @@
       font-size: 1.1rem;
       color: var(--rose-gold);
       margin: 0 0.18rem;
+    }
+
+    @media (min-width: 900px) {
+      .footer-mini {
+        text-align: right;
+        padding: 0 1.7rem 1.2rem;
+      }
     }
 
     /* overlay máy bay ----------------------------------------- */
@@ -321,26 +400,14 @@
       body {
         padding: 1.2rem;
       }
-      .cover-card {
-        padding: 1.4rem 1.2rem 1.6rem;
-      }
-      .title-names {
-        font-size: 2.3rem;
-      }
-      .choice-area {
-        min-height: 110px;
-      }
       .plane-icon {
         font-size: 3.6rem;
       }
     }
 
-    @media (min-width: 768px) {
-      .cover-card {
-        padding: 2rem 2rem 2.1rem;
-      }
-      .photo-wrap {
-        margin-bottom: 1.6rem;
+    @media (min-width: 1200px) {
+      body {
+        padding: 2.2rem;
       }
     }
   </style>
@@ -366,118 +433,127 @@
   <div class="cover-wrapper">
     <div class="cover-card">
       <div class="cover-inner">
-        <!-- Ảnh hai vợ chồng – đổi src thành ảnh của bạn -->
-        <div class="photo-wrap">
-          <img
-            src="https://images.pexels.com/photos/3137073/pexels-photo-3137073.jpeg?auto=compress&cs=tinysrgb&w=1200"
-            alt="Minh Nghĩa &amp; Bảo Hân"
-          >
+        <!-- Cột trái: Ảnh -->
+        <div class="cover-left">
+          <div class="photo-wrap">
+            <!-- Đổi src thành ảnh của hai vợ chồng -->
+            <img
+              src="https://scontent.fhan5-9.fna.fbcdn.net/v/t39.30808-6/584328818_2455227938212267_5374874912422951964_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=NQkMmqBJSP0Q7kNvwGltT05&_nc_oc=AdnVV4wrvgzEGyP1b3GGbDXQuDkXrm0q9F43FCM9f69w0d-FiyI8Zb6br16oSE1rFCLci702P3jxjgAqlaBZLay2&_nc_zt=23&_nc_ht=scontent.fhan5-9.fna&_nc_gid=5cMo8ogX32PRXKgyPMurHQ&oh=00_Afhzj3gx6VdnCCG-G57f4j_ZhVe-iQCq1PsBNgwjcHmoag&oe=692231BA"
+              alt="Minh Nghĩa &amp; Bảo Hân"
+            >
+          </div>
         </div>
 
-        <h1 class="title-names">
-          Minh Nghĩa
-          <span class="and">&amp;</span>
-          Bảo Hân
-        </h1>
-        <div class="names-sub">
-          OUR WEDDING DAY
+        <!-- Cột phải: Nội dung -->
+        <div class="cover-right">
+          <div>
+            <h1 class="title-names">
+              Minh Nghĩa
+              <span class="and">&amp;</span>
+              Bảo Hân
+            </h1>
+            <div class="names-sub">
+              OUR WEDDING DAY
+            </div>
+
+            <p class="question">
+              Bạn sẽ tham gia chứ? 💌
+            </p>
+            <p class="question-sub">
+              Will you join us on our special day?
+            </p>
+
+            <div class="choice-area" id="choice-area">
+              <!-- Đổi href sang trang thiệp cưới chi tiết -->
+              <a href="wedding-detail.html" class="btn btn-yes" id="yes-btn">
+                <span>Yes</span>
+                <span>✈️</span>
+              </a>
+
+              <button type="button" class="btn btn-no" id="no-btn">
+                No
+              </button>
+            </div>
+
+            <p class="hint">
+              Gợi ý nhỏ: hình như nút <strong>No</strong> hơi… khó bấm đó 😇
+            </p>
+          </div>
         </div>
+      </div>
 
-        <p class="question">
-          Bạn sẽ tham gia chứ? 💌
-        </p>
-        <p class="question-sub">
-          Will you join us on our special day?
-        </p>
-
-        <div class="choice-area" id="choice-area">
-          <!-- Đổi href sang trang thiệp cưới chi tiết -->
-          <a href="wedding-detail.html" class="btn btn-yes" id="yes-btn">
-            <span>Yes</span>
-            <span>✈️</span>
-          </a>
-
-          <button type="button" class="btn btn-no" id="no-btn">
-            No
-          </button>
-        </div>
-
-        <p class="hint">
-          Gợi ý nhỏ: hình như nút <strong>No</strong> hơi… khó bấm đó 😇
-        </p>
-
-        <div class="footer-mini">
-          With love from
-          <span class="names">Minh Nghĩa</span>
-          &
-          <span class="names">Bảo Hân</span>
-        </div>
+      <div class="footer-mini">
+        With love from
+        <span class="names">Minh Nghĩa</span>
+        &
+        <span class="names">Bảo Hân</span>
       </div>
     </div>
   </div>
 
   <script>
-    // =========================
-    // HÀM RANDOM VÀ CLAMP TOẠ ĐỘ TRONG VIEWPORT
-    // =========================
-    function getClampedRandomPosition(el) {
-      const padding = 8;
-      const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
-
-      const rect = el.getBoundingClientRect();
-      const btnWidth = rect.width;
-      const btnHeight = rect.height;
-
-      const minX = padding;
-      const minY = padding;
-      const maxX = Math.max(viewportWidth - btnWidth - padding, padding);
-      const maxY = Math.max(viewportHeight - btnHeight - padding, padding);
-
-      const randX = minX + Math.random() * (maxX - minX);
-      const randY = minY + Math.random() * (maxY - minY);
-
-      return { x: randX, y: randY };
-    }
-
-    function clampIntoViewport(el) {
-      const padding = 8;
-      const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
-
-      const rect = el.getBoundingClientRect();
-      let left = rect.left;
-      let top = rect.top;
-
-      const maxLeft = viewportWidth - rect.width - padding;
-      const maxTop  = viewportHeight - rect.height - padding;
-
-      left = Math.min(Math.max(left, padding), maxLeft);
-      top  = Math.min(Math.max(top, padding), maxTop);
-
-      el.style.left = left + 'px';
-      el.style.top  = top + 'px';
-    }
-
-    // =========================
-    // NÚT NO CHẠY TRONG MÀN HÌNH
-    // =========================
     const noBtn = document.getElementById('no-btn');
+    const yesBtn = document.getElementById('yes-btn');
+    const choiceArea = document.getElementById('choice-area');
+
+    // Kiểm tra overlap giữa 2 hình chữ nhật
+    function isOverlap(ax, ay, aw, ah, bx, by, bw, bh) {
+      return !(
+        ax + aw < bx ||
+        ax > bx + bw ||
+        ay + ah < by ||
+        ay > by + bh
+      );
+    }
 
     function moveNoButton() {
-      if (!noBtn) return;
+      if (!noBtn || !choiceArea || !yesBtn) return;
 
-      // Lần đầu chuyển sang floating: giữ vị trí hiện tại làm gốc
+      // Lần đầu: bật chế độ floating
       if (!noBtn.classList.contains('floating')) {
-        const rect = noBtn.getBoundingClientRect();
         noBtn.classList.add('floating');
-        noBtn.style.left = rect.left + 'px';
-        noBtn.style.top  = rect.top + 'px';
       }
 
-      const pos = getClampedRandomPosition(noBtn);
-      noBtn.style.left = pos.x + 'px';
-      noBtn.style.top  = pos.y + 'px';
+      const areaRect = choiceArea.getBoundingClientRect();
+      const btnRect = noBtn.getBoundingClientRect();
+      const yesRect = yesBtn.getBoundingClientRect();
+
+      const padding = 4;
+      const marginAroundYes = 10; // vùng đệm quanh nút Yes, tránh bị chồng lên
+
+      const btnWidth = btnRect.width;
+      const btnHeight = btnRect.height;
+
+      const maxX = Math.max(areaRect.width - btnWidth - padding * 2, 0);
+      const maxY = Math.max(areaRect.height - btnHeight - padding * 2, 0);
+
+      // Tọa độ nút Yes tương đối so với choice-area
+      const yesRelX = yesRect.left - areaRect.left;
+      const yesRelY = yesRect.top - areaRect.top;
+      const yesWidth = yesRect.width;
+      const yesHeight = yesRect.height;
+
+      // Vùng cần tránh (Yes + margin)
+      const avoidX = yesRelX - marginAroundYes;
+      const avoidY = yesRelY - marginAroundYes;
+      const avoidW = yesWidth + marginAroundYes * 2;
+      const avoidH = yesHeight + marginAroundYes * 2;
+
+      let randX, randY;
+      const maxTries = 30;
+      let tries = 0;
+
+      do {
+        randX = padding + Math.random() * maxX;
+        randY = padding + Math.random() * maxY;
+        tries++;
+      } while (
+        isOverlap(randX, randY, btnWidth, btnHeight, avoidX, avoidY, avoidW, avoidH) &&
+        tries < maxTries
+      );
+
+      noBtn.style.left = randX + 'px';
+      noBtn.style.top  = randY + 'px';
     }
 
     if (noBtn) {
@@ -494,19 +570,11 @@
         e.preventDefault();
         moveNoButton();
       }, { passive: false });
-
-      // Khi đổi kích thước màn hình (xoay iPad, resize), nếu đang floating thì kéo nút No vào lại trong viewport
-      window.addEventListener('resize', () => {
-        if (noBtn.classList.contains('floating')) {
-          clampIntoViewport(noBtn);
-        }
-      });
     }
 
     // =========================
     // HIỆU ỨNG MÁY BAY & ÂM THANH & ĐI TỚI TRANG CHI TIẾT
     // =========================
-    const yesBtn = document.getElementById('yes-btn');
     const planeOverlay = document.getElementById('plane-overlay');
     const planeSound = document.getElementById('plane-sound');
 
