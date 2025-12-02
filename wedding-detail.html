@@ -1,0 +1,1869 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thiệp cưới Boarding Pass – Nghĩa &amp; Hân</title>
+  <meta name="description" content="Thiệp mời lên chuyến bay tình yêu của Nghĩa &amp; Hân – Boarding pass for our journey of love. Thiệp cưới song ngữ Việt - Anh với phong cách vé máy bay hạng thương gia." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --pink-main: #f8c9da;
+      --pink-soft: #ffe6f0;
+      --cream: #fff7f0;
+      --rose-gold: #c7927f;
+      --dark-text: #3c2f2f;
+      --muted-text: #7b6b6b;
+      --card-bg: #ffffff;
+      --border-gray: #e3d6d6;
+      --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.08);
+      --radius-large: 24px;
+      --nav-height: 72px;
+      --transition-fast: 0.25s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, var(--pink-soft), var(--cream));
+      color: var(--dark-text);
+      line-height: 1.6;
+      padding-top: var(--nav-height);
+      overflow-x: hidden; /* CHẶN TRÀN NGANG */
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    /* MOBILE-FIRST SECTION PADDING */
+    section {
+      padding: 2.5rem 1.1rem;
+      scroll-margin-top: calc(var(--nav-height) + 16px);
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 1.8rem;
+    }
+
+    .section-title h2 {
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      color: var(--rose-gold);
+    }
+
+    .section-title h3 {
+      margin-top: 0.35rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .section-title p {
+      margin-top: 0.35rem;
+      font-size: 0.9rem;
+      color: var(--muted-text);
+    }
+
+    /* NAVBAR -------------------------------------------------- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      z-index: 1000;
+      transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+      background: rgba(255, 246, 248, 0.7);
+      backdrop-filter: blur(8px);
+    }
+
+    header.scrolled {
+      background: rgba(255, 246, 248, 0.95);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .navbar {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.1rem;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-logo span.logo-icon {
+      font-size: 1rem;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: none;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.2rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--rose-gold), var(--pink-main));
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .hamburger {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      background: rgba(255, 255, 255, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .hamburger-line {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--dark-text);
+      position: relative;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .hamburger-line::before,
+    .hamburger-line::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--dark-text);
+      transition: transform 0.2s ease, top 0.2s ease, opacity 0.2s ease;
+    }
+
+    .hamburger-line::before {
+      top: -5px;
+    }
+
+    .hamburger-line::after {
+      top: 5px;
+    }
+
+    .hamburger.active .hamburger-line {
+      background: transparent;
+    }
+
+    .hamburger.active .hamburger-line::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    .hamburger.active .hamburger-line::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+
+    .nav-links-mobile {
+      position: fixed;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      background: rgba(255, 246, 248, 0.98);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+      display: none;
+      flex-direction: column;
+      padding: 1rem 1.5rem 1.5rem;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      z-index: 999;
+    }
+
+    .nav-links-mobile a {
+      padding: 0.4rem 0;
+    }
+
+    .nav-links-mobile.open {
+      display: flex;
+    }
+
+    /* HERO SECTION -------------------------------------------- */
+    #hero {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    .hero-visual {
+      position: relative;
+      border-radius: var(--radius-large);
+      overflow: hidden;
+      background-image: url('https://scontent.fhan5-9.fna.fbcdn.net/v/t39.30808-6/584328818_2455227938212267_5374874912422951964_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=NQkMmqBJSP0Q7kNvwGltT05&_nc_oc=AdnVV4wrvgzEGyP1b3GGbDXQuDkXrm0q9F43FCM9f69w0d-FiyI8Zb6br16oSE1rFCLci702P3jxjgAqlaBZLay2&_nc_zt=23&_nc_ht=scontent.fhan5-9.fna&_nc_gid=5cMo8ogX32PRXKgyPMurHQ&oh=00_Afhzj3gx6VdnCCG-G57f4j_ZhVe-iQCq1PsBNgwjcHmoag&oe=692231BA');
+      background-size: cover;
+      background-position: center;
+      min-height: 220px;
+      box-shadow: var(--shadow-soft);
+      transform: translateY(0);
+      transition: transform 0.4s ease-out;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 230, 240, 0.35),
+        rgba(255, 247, 240, 0.15)
+      );
+    }
+
+    .hero-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 0.25rem 0.8rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--rose-gold);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .hero-content {
+      position: relative;
+      padding: 1.3rem 1.1rem 1.4rem;
+      z-index: 1;
+      color: var(--dark-text);
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-names {
+      font-family: "Great Vibes", cursive;
+      font-size: 2.2rem;
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+      text-align: left;
+    }
+
+    .hero-line {
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rose-gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-date-block {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 0.86rem;
+      margin-bottom: 0.9rem;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+    }
+
+    .hero-date-block span:first-child {
+      font-weight: 600;
+    }
+
+    .hero-tagline {
+      font-size: 0.9rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .hero-tagline + .hero-tagline {
+      margin-top: -0.2rem;
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--muted-text);
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.1rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, var(--rose-gold), var(--pink-main));
+      color: #fff;
+      font-size: 0.87rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+      text-align: center;
+      flex-wrap: wrap;
+      max-width: 100%; /* không cho nút lớn hơn container */
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18);
+    }
+
+    .btn-secondary-link {
+      font-size: 0.82rem;
+      color: var(--muted-text);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    /* BOARDING PASS SECTION ----------------------------------- */
+    .boarding-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+
+    .boarding-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      max-width: 960px;
+      width: 100%;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr; /* MOBILE: 1 cột */
+      position: relative;
+      isolation: isolate;
+    }
+
+    .boarding-card::before {
+      content: none;
+    }
+
+    .ticket-main,
+    .ticket-stub {
+      padding: 1.3rem 1.3rem;
+    }
+
+    .ticket-main {
+      position: relative;
+    }
+
+    .ticket-stub {
+      background: linear-gradient(135deg, #ffeaf3, #fbe5da);
+      border-top: 1px dashed rgba(199, 146, 127, 0.3);
+      border-left: none;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.1rem;
+    }
+
+    .ticket-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .ticket-logo {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted-text);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .ticket-tag {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: #fff6fa;
+      color: var(--rose-gold);
+      border: 1px solid rgba(199, 146, 127, 0.25);
+      white-space: nowrap;
+    }
+
+    .ticket-names {
+      font-family: "Great Vibes", cursive;
+      font-size: 1.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .ticket-sub {
+      font-size: 0.82rem;
+      color: var(--muted-text);
+      margin-bottom: 1.1rem;
+    }
+
+    .ticket-rows {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem 1.2rem;
+      font-size: 0.82rem;
+    }
+
+    .ticket-field-label {
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted-text);
+      margin-bottom: 0.2rem;
+    }
+
+    .ticket-field-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .airport-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-top: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .airport-code {
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .airport-arrow {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(90deg, var(--rose-gold), var(--pink-main));
+      position: relative;
+    }
+
+    .airport-arrow::after {
+      content: "✈️";
+      position: absolute;
+      right: -8px;
+      top: -13px;
+      font-size: 1.1rem;
+    }
+
+    .airport-text {
+      font-size: 0.8rem;
+      color: var(--muted-text);
+    }
+
+    .ticket-footer-note {
+      font-size: 0.78rem;
+      color: var(--muted-text);
+      margin-top: 0.3rem;
+    }
+
+    .ticket-stub-top {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .stub-flight-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.8rem;
+    }
+
+    .stub-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted-text);
+    }
+
+    .stub-value {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .stub-qr {
+      margin-top: 0.5rem;
+      padding: 0.85rem;
+      border-radius: 18px;
+      border: 1px dashed rgba(199, 146, 127, 0.5);
+      background: rgba(255, 255, 255, 0.6);
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--muted-text);
+    }
+
+    .stub-qr-box {
+      width: 86px;
+      height: 86px;
+      border-radius: 16px;
+      border: 2px dashed rgba(199, 146, 127, 0.7);
+      margin: 0 auto 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    .stub-footer {
+      font-size: 0.7rem;
+      color: var(--muted-text);
+    }
+
+    /* JOURNEY WRAPPER (nếu dùng) ------------------------------ */
+    .journey-wrapper {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: var(--radius-large);
+      padding: 1.8rem 1.4rem 1.9rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      display: grid;
+      gap: 2rem;
+    }
+
+    .journey-text {
+      font-size: 0.9rem;
+    }
+
+    /* EVENT DETAILS SECTION (FLIGHT BOARD) -------------------- */
+    .flight-board {
+      border-radius: var(--radius-large);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      overflow: hidden;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .flight-board-header {
+      padding: 0.9rem 1.1rem;
+      background: linear-gradient(135deg, var(--rose-gold), var(--pink-main));
+      color: #fff;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+    }
+
+    .flight-board-header span {
+      font-weight: 500;
+    }
+
+    .flight-board-body {
+      padding: 0.9rem 0.9rem 1.1rem;
+    }
+
+    .flight-board-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+      table-layout: fixed;
+    }
+
+    .flight-board-table thead {
+      border-bottom: 1px solid var(--border-gray);
+    }
+
+    .flight-board-table th,
+    .flight-board-table td {
+      padding: 0.6rem 0.5rem;
+      vertical-align: top;
+    }
+
+    .flight-board-table th {
+      text-align: left;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted-text);
+    }
+
+    .flight-board-table tbody tr {
+      border-bottom: 1px solid rgba(227, 214, 214, 0.65);
+    }
+
+    .flight-board-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .flight-label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.1rem;
+    }
+
+    .flight-label-en {
+      font-size: 0.8rem;
+      color: var(--muted-text);
+    }
+
+    .flight-meta {
+      font-size: 0.84rem;
+      color: var(--dark-text);
+    }
+
+    /* RSVP SECTION -------------------------------------------- */
+    .rsvp-card {
+      border-radius: var(--radius-large);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: var(--shadow-soft);
+      padding: 1.4rem 1.3rem 1.7rem;
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      max-width: 720px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .rsvp-card p {
+      font-size: 0.88rem;
+      color: var(--muted-text);
+      margin-bottom: 1.1rem;
+      text-align: center;
+    }
+
+    .rsvp-form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: 0.85rem;
+    }
+
+    .form-field label {
+      font-weight: 500;
+    }
+
+    .form-label-en {
+      font-weight: 400;
+      font-size: 0.8rem;
+      color: var(--muted-text);
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      border-radius: 12px;
+      border: 1px solid rgba(227, 214, 214, 0.9);
+      padding: 0.55rem 0.75rem;
+      font-size: 0.86rem;
+      font-family: inherit;
+      outline: none;
+      background: #fff;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      width: 100%;          /* ĐẢM BẢO KHÔNG VƯỢT QUÁ CARD */
+      max-width: 100%;
+    }
+
+    .form-field textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus,
+    .form-field select:focus {
+      border-color: var(--rose-gold);
+      box-shadow: 0 0 0 3px rgba(199, 146, 127, 0.15);
+      background: #fff9fc;
+    }
+
+    .rsvp-actions {
+      display: flex;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    /* GALLERY SECTION (nếu dùng) ------------------------------ */
+    .gallery-grid {
+      display: grid;
+      gap: 0.75rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      background: #f7e2ea;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      transform: translateY(0);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.22s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+      filter: brightness(1.03);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0.4rem 0.5rem 0.5rem;
+      font-size: 0.72rem;
+      background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.55));
+      color: #fff;
+    }
+
+    /* COUNTDOWN SECTION --------------------------------------- */
+    .countdown-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .count-box {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 18px;
+      padding: 0.85rem 0.6rem;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+
+    .count-value {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .count-label {
+      font-size: 0.8rem;
+      margin-top: 0.2rem;
+    }
+
+    .count-label span.en {
+      display: block;
+      font-size: 0.74rem;
+      color: var(--muted-text);
+    }
+
+    .countdown-message {
+      font-size: 0.92rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .countdown-note {
+      font-size: 0.85rem;
+      color: var(--muted-text);
+      margin-bottom: 0.8rem;
+    }
+
+    .love-quote {
+      font-size: 0.88rem;
+      font-style: italic;
+      color: var(--dark-text);
+    }
+
+    /* MUSIC PLAYER -------------------------------------------- */
+    .music-player {
+      position: fixed;
+      right: 0.8rem;
+      bottom: 0.8rem;
+      z-index: 1001;
+      background: rgba(255, 246, 248, 0.95);
+      border-radius: 999px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      padding: 0.45rem 0.75rem 0.45rem 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.78rem;
+      backdrop-filter: blur(8px);
+      max-width: calc(100% - 1.6rem);
+    }
+
+    .music-toggle-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, var(--rose-gold), var(--pink-main));
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+      flex-shrink: 0;
+    }
+
+    .music-label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .music-label strong {
+      font-size: 0.78rem;
+    }
+
+    .music-label span {
+      font-size: 0.72rem;
+      color: var(--muted-text);
+    }
+
+    /* MODALS -------------------------------------------------- */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1500;
+      padding: 1rem;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-content {
+      background: #fffafc;
+      border-radius: 20px;
+      padding: 1.5rem 1.5rem 1.3rem;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.22);
+      position: relative;
+      text-align: center;
+      border: 1px solid rgba(199, 146, 127, 0.5);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: none;
+      background: rgba(0, 0, 0, 0.04);
+      font-size: 1.1rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content h4 {
+      font-size: 1.05rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .modal-content p {
+      font-size: 0.86rem;
+      color: var(--muted-text);
+    }
+
+    /* LIGHTBOX MODAL ----------------------------------------- */
+    .lightbox-modal .modal-content {
+      max-width: 860px;
+      padding: 0.7rem;
+      background: #151010;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .lightbox-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .lightbox-image-wrapper {
+      max-height: 70vh;
+      overflow: hidden;
+      border-radius: 16px;
+    }
+
+    .lightbox-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .lightbox-caption {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .lightbox-modal .modal-close {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+    }
+
+    /* FOOTER -------------------------------------------------- */
+    footer {
+      padding: 1.8rem 1.5rem 2.2rem;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--muted-text);
+    }
+
+    footer span.names {
+      font-family: "Great Vibes", cursive;
+      font-size: 1.1rem;
+      display: inline-block;
+      margin: 0 0.25rem;
+      color: var(--rose-gold);
+    }
+
+    /* SCROLL REVEAL ANIMATIONS -------------------------------- */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .reveal-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* MEDIA QUERIES ------------------------------------------- */
+    @media (min-width: 640px) {
+      section {
+        padding: 3.5rem 1.5rem;
+      }
+
+      #hero {
+        padding-bottom: 4.1rem;
+      }
+
+      .hero-inner {
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+        align-items: stretch;
+        gap: 2rem;
+      }
+
+      .hero-visual {
+        min-height: 280px;
+      }
+
+      .hero-content {
+        padding: 1.8rem 1.5rem;
+      }
+
+      .hero-names {
+        font-size: 2.6rem;
+      }
+
+      .hero-date-block {
+        margin-bottom: 1.2rem;
+      }
+
+      .ticket-rows {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .countdown-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+
+      .hamburger,
+      .nav-links-mobile {
+        display: none;
+      }
+
+      nav {
+        font-size: 0.86rem;
+      }
+
+      /* Boarding pass: 2 cột trên tablet/desktop */
+      .boarding-card {
+        grid-template-columns: 2fr 1.1fr;
+      }
+
+      .boarding-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 110px;
+        left: 64%;
+        background-image: radial-gradient(circle at 0 50%, transparent 12px, #f0dce1 12px);
+        opacity: 0.7;
+        pointer-events: none;
+        mix-blend-mode: multiply;
+      }
+
+      .ticket-stub {
+        border-top: none;
+        border-left: 1px dashed rgba(199, 146, 127, 0.3);
+      }
+
+      .location-card {
+        grid-template-columns: 2fr 1fr;
+        align-items: center;
+      }
+
+      .journey-wrapper {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+        align-items: flex-start;
+        padding: 2.1rem 2rem 2.2rem;
+      }
+    }
+
+    @media (min-width: 900px) {
+      #hero {
+        padding-top: 4rem;
+        padding-bottom: 4.6rem;
+      }
+
+      .hero-visual {
+        min-height: 340px;
+      }
+
+      .music-player {
+        right: 2rem;
+        bottom: 2rem;
+      }
+    }
+
+    /* MOBILE EXTRA TWEAKS ------------------------------------- */
+    @media (max-width: 480px) {
+      .flight-board-header {
+        justify-content: center;
+        text-align: center;
+      }
+
+      /* Chỉ nút trong RSVP card mới full-width */
+      .rsvp-actions .btn-primary {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HERO SECTION -------------------------------------------->
+  <header id="site-header">
+    <nav class="navbar">
+      <div class="nav-logo">
+        <span class="logo-icon">✈️</span>
+        <span>LOVE CLASS</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#boarding-pass">Vé mời / Boarding Pass</a></li>
+        <li><a href="#journey">Hành trình / Journey</a></li>
+        <li><a href="#details">Thông tin / Details</a></li>
+        <li><a href="#rsvp">RSVP</a></li>
+        <li><a href="#location">Địa điểm / Location</a></li>
+        <li><a href="#gallery">Khoảnh khắc / Gallery</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation">
+        <span class="hamburger-line"></span>
+      </button>
+    </nav>
+    <div class="nav-links-mobile" id="mobile-nav">
+      <a href="#boarding-pass">Vé mời / Boarding Pass</a>
+      <a href="#journey">Hành trình / Journey</a>
+      <a href="#details">Thông tin / Details</a>
+      <a href="#rsvp">RSVP</a>
+      <a href="#location">Địa điểm / Location</a>
+      <a href="#gallery">Khoảnh khắc / Gallery</a>
+      <a href="#countdown">Đếm ngược / Countdown</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="reveal-on-scroll">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-visual" id="hero-visual">
+            <div class="hero-overlay"></div>
+            <div class="hero-badge">
+              <span>BUSINESS CLASS</span> <span>❤️</span>
+            </div>
+          </div>
+          <div class="hero-content">
+            <div class="hero-line">
+              Thiệp mời lên chuyến bay tình yêu
+            </div>
+            <div class="hero-line" style="letter-spacing: 0.16em; font-size: 0.72rem;">
+              Boarding Pass for Our Journey of Love
+            </div>
+
+            <div class="hero-names">
+              Minh Nghĩa &amp; Bảo Hân
+            </div>
+
+            <div class="hero-date-block">
+              <span>Ngày cưới: 29/12/2025</span>
+              <span>Wedding Date: December 29, 2025</span>
+            </div>
+
+            <p class="hero-tagline">
+              Chúng mình trân trọng mời bạn cùng lên chuyến bay hạng thương gia, đồng hành trong ngày đặc biệt này.
+            </p>
+            <p class="hero-tagline">
+              We warmly invite you to board our business-class flight and celebrate this special day with us.
+            </p>
+
+            <p class="hero-note">
+              Vui lòng cuộn xuống để xem chi tiết "chuyến bay" tình yêu, RSVP và địa điểm tổ chức.
+              <br>
+              Please scroll down to see the love "flight" details, RSVP, and venue information.
+            </p>
+
+            <div class="hero-cta-row">
+              <a href="#rsvp" class="btn-primary">
+                <span>RSVP / Xác nhận</span>
+                <span>💌</span>
+              </a>
+              <a href="#boarding-pass" class="btn-secondary-link">
+                <span>Xem vé mời / View boarding pass</span>
+                <span>↓</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOARDING PASS SECTION --------------------------------->
+    <section id="boarding-pass" class="reveal-on-scroll">
+      <div class="container">
+        <div class="section-title">
+          <h2>Vé mời lên chuyến bay · Boarding Pass</h2>
+          <h3>Chuyến bay tình yêu hạng thương gia · Business-Class Love Flight</h3>
+          <p>
+            Đây là tấm vé mời đặc biệt dành riêng cho bạn – hành khách danh dự trên hành trình mới của Nhân &amp; Linh.
+            <br>
+            This is a special boarding pass just for you – an honored passenger on the new journey of Nhan &amp; Linh.
+          </p>
+        </div>
+
+        <div class="boarding-wrapper">
+          <article class="boarding-card">
+            <div class="ticket-main">
+              <div class="ticket-header">
+                <div class="ticket-logo">
+                  <span>LOVE AIRLINES</span>
+                </div>
+                <span class="ticket-tag">Wedding · Business Class</span>
+              </div>
+
+              <div class="ticket-names">
+                Minh Nghĩa &amp; Bảo Hân
+              </div>
+              <div class="ticket-sub">
+                Thiệp mời lên chuyến bay tình yêu · Boarding Pass for Our Journey of Love
+              </div>
+
+              <div class="ticket-rows">
+                <div>
+                  <div class="ticket-field-label">Hành khách · Passenger</div>
+                  <div class="ticket-field-value">
+                    Kính mời / Guest
+                  </div>
+                </div>
+                <div>
+                  <div class="ticket-field-label">Đi từ · From</div>
+                  <div class="ticket-field-value">
+                    Nhà của bạn
+                  </div>
+                </div>
+                <div>
+                  <div class="ticket-field-label">Đến · To</div>
+                  <div class="ticket-field-value">
+                    Hà Nội
+                  </div>
+                </div>
+                <div>
+                  <div class="ticket-field-label">Chuyến bay · Flight</div>
+                  <div class="ticket-field-value">
+                    LOVE 29122025
+                  </div>
+                </div>
+                <div>
+                  <div class="ticket-field-label">Cổng · Gate</div>
+                  <div class="ticket-field-value">
+                    Almaz Convention Center
+                  </div>
+                </div>
+                <div>
+                  <div class="ticket-field-label">Hạng ghế · Seat</div>
+                  <div class="ticket-field-value">
+                    Business Class
+                  </div>
+                </div>
+              </div>
+
+              <div class="airport-row">
+                <div>
+                  <div class="airport-code">URH</div>
+                  <div class="airport-text">Nhà của bạn · Your house</div>
+                </div>
+                <div class="airport-arrow"></div>
+                <div style="text-align: right;">
+                  <div class="airport-code">HNI</div>
+                  <div class="airport-text">Hà Nội · Ha Noi</div>
+                </div>
+              </div>
+
+              <div class="ticket-rows" style="margin-top: 0.6rem;">
+                <div>
+                  <div class="ticket-field-label">Giờ boarding · Boarding Time</div>
+                  <div class="ticket-field-value">
+                    18:30 (6:30 PM)
+                  </div>
+                </div>
+                <div>
+                  <div class="ticket-field-label">Ngày · Date</div>
+                  <div class="ticket-field-value">
+                    29/12/2025
+                  </div>
+                </div>
+                <div>
+                  <div class="ticket-field-label">Ngày · Date (EN)</div>
+                  <div class="ticket-field-value">
+                    December 29, 2025
+                  </div>
+                </div>
+              </div>
+
+              <p class="ticket-footer-note">
+                Vui lòng đến sớm để làm thủ tục "check-in" yêu thương.
+                <br>
+                Please arrive a little early for a smooth and loving "check-in" process.
+              </p>
+            </div>
+
+            <aside class="ticket-stub" aria-label="Boarding pass stub">
+              <div class="ticket-stub-top">
+                <div class="stub-flight-row">
+                  <div>
+                    <div class="stub-label">Chuyến bay · Flight</div>
+                    <div class="stub-value">LOVE 29122025</div>
+                  </div>
+                  <div style="text-align:right;">
+                    <div class="stub-label">Ngày · Date</div>
+                    <div class="stub-value">29 / 12 / 2025</div>
+                  </div>
+                </div>
+
+                <div class="stub-flight-row">
+                  <div>
+                    <div class="stub-label">Giờ boarding · Boarding</div>
+                    <div class="stub-value">18:30</div>
+                  </div>
+                  <div style="text-align:right;">
+                    <div class="stub-label">Cổng · Gate</div>
+                    <div class="stub-value">Almaz Convention Center</div>
+                  </div>
+                </div>
+
+                <div class="stub-qr">
+                  <div class="stub-qr-box">
+                    QR
+                  </div>
+                  <div>
+                    Quét để xem bản đồ &amp; RSVP
+                    <br>
+                    Scan for map &amp; RSVP
+                  </div>
+                </div>
+              </div>
+
+              <div class="stub-footer">
+                Vé mời không cần in, chỉ cần mang theo nụ cười và trái tim ấm áp.
+                <br>
+                No printed ticket required, just bring your smile and warm heart.
+              </div>
+            </aside>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENT DETAILS SECTION --------------------------------->
+    <section id="details" class="reveal-on-scroll">
+      <div class="container">
+        <div class="section-title">
+          <h2>Thông tin sự kiện · Event Details</h2>
+          <h3>Bảng thông tin chuyến bay · Flight Info Board</h3>
+          <p>
+            Hãy kiểm tra "bảng điện tử" dưới đây để không bỏ lỡ bất kỳ khoảnh khắc quan trọng nào trong ngày cưới.
+            <br>
+            Please check the "flight board" below so you won't miss any important moment of our wedding day.
+          </p>
+        </div>
+
+        <div class="flight-board">
+          <div class="flight-board-header">
+            <span>LOVE AIRLINES · WEDDING FLIGHT</span>
+            <span>✈️</span>
+          </div>
+          <div class="flight-board-body">
+            <table class="flight-board-table" aria-label="Event details table">
+              <thead>
+                <tr>
+                  <th>Sự kiện / Event</th>
+                  <th>Thời gian / Time</th>
+                  <th>Địa điểm / Location</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <span class="flight-label">Đón khách</span>
+                    <span class="flight-label-en">Guest Arrival</span>
+                  </td>
+                  <td>
+                    <div class="flight-meta">
+                      16:30 · Chiều
+                      <br>
+                      4:30 PM
+                    </div>
+                  </td>
+                  <td>
+                    <div class="flight-meta">
+                      Sảnh chính Almaz Convention Center
+                      <br>
+                      Main lobby · Almaz Convention Center
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="flight-label">Lễ cưới</span>
+                    <span class="flight-label-en">Wedding Ceremony</span>
+                  </td>
+                  <td>
+                    <div class="flight-meta">
+                      17:30 · Chiều
+                      <br>
+                      5:30 PM
+                    </div>
+                  </td>
+                  <td>
+                    <div class="flight-meta">
+                      Phòng tiệc Queen
+                      <br>
+                      Queen Room
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="flight-label">Tiệc cưới</span>
+                    <span class="flight-label-en">Wedding Reception</span>
+                  </td>
+                  <td>
+                    <div class="flight-meta">
+                      18:30 – 21:30
+                      <br>
+                      6:30 PM – 9:30 PM
+                    </div>
+                  </td>
+                  <td>
+                    <div class="flight-meta">
+                      Almaz Convention Center, Long Biên, Hà Nội
+                      <br>
+                      Almaz Convention Center, Long Bien, Ha Noi
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP SECTION ------------------------------------------>
+    <section id="rsvp" class="reveal-on-scroll">
+      <div class="container">
+        <div class="section-title">
+          <h2>Xác nhận tham dự · RSVP</h2>
+          <h3>Mời bạn "check-in" cho chuyến bay tình yêu</h3>
+          <p>
+            Sự hiện diện của bạn là món quà quý giá nhất đối với chúng mình. Hãy cho chúng mình biết liệu bạn có thể tham dự được không nhé.
+            <br>
+            Your presence is the greatest gift for us. Please let us know if you will be able to join our special day.
+          </p>
+        </div>
+
+        <div class="rsvp-card">
+          <p>
+            Vui lòng điền thông tin bên dưới để xác nhận "lên chuyến bay". Chúng mình sẽ cố gắng sắp xếp mọi thứ thật chu đáo để bạn cảm thấy thoải mái và ấm áp nhất.
+            <br>
+            Please fill in the details below to "confirm boarding". We will do our best to make everything warm, cozy, and comfortable for you.
+          </p>
+
+          <form id="rsvp-form" class="rsvp-form">
+            <div class="form-field">
+              <label for="fullName">Họ và tên</label>
+              <span class="form-label-en">Full name</span>
+              <input type="text" id="fullName" name="fullName" placeholder="Nhập họ tên của bạn / Enter your full name" required>
+            </div>
+
+            <div class="form-field">
+              <label for="guestCount">Số lượng khách</label>
+              <span class="form-label-en">Number of guests (including you)</span>
+              <input type="number" id="guestCount" name="guestCount" min="1" max="10" value="1" required>
+            </div>
+
+            <div class="form-field">
+              <label for="attendance">Bạn có thể tham dự không?</label>
+              <span class="form-label-en">Will you attend?</span>
+              <select id="attendance" name="attendance" required>
+                <option value="">-- Vui lòng chọn / Please choose --</option>
+                <option value="yes">Có, mình sẽ lên chuyến bay · Yes, I will join</option>
+                <option value="no">Rất tiếc, mình không thể tham dự · Sorry, I cannot attend</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="message">Lời nhắn gửi đến cô dâu chú rể</label>
+              <span class="form-label-en">Message for the couple</span>
+              <textarea id="message" name="message" placeholder="Bạn muốn nhắn điều gì dễ thương cho chúng mình không? / Would you like to leave us a sweet note?"></textarea>
+            </div>
+
+            <div class="rsvp-actions">
+              <button type="submit" class="btn-primary">
+                <span>Xác nhận lên chuyến bay</span>
+                <span>/ Confirm boarding ✈️</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- COUNTDOWN SECTION ------------------------------------->
+    <section id="countdown" class="reveal-on-scroll">
+      <div class="container">
+        <div class="section-title">
+          <h2>Đếm ngược đến ngày cưới · Countdown to Our Day</h2>
+          <h3>Chuyến bay đang chuẩn bị cất cánh</h3>
+          <p>
+            Mỗi ngày trôi qua, chúng mình lại gần hơn một bước đến khoảnh khắc được gọi nhau là "vợ chồng".
+            <br>
+            With every passing day, we get one step closer to the moment we call each other "husband and wife".
+          </p>
+        </div>
+
+        <div class="countdown-wrapper">
+          <div class="countdown-grid" aria-label="Wedding countdown">
+            <div class="count-box">
+              <div id="count-days" class="count-value">0</div>
+              <div class="count-label">
+                Ngày
+                <span class="en">Days</span>
+              </div>
+            </div>
+            <div class="count-box">
+              <div id="count-hours" class="count-value">0</div>
+              <div class="count-label">
+                Giờ
+                <span class="en">Hours</span>
+              </div>
+            </div>
+            <div class="count-box">
+              <div id="count-minutes" class="count-value">0</div>
+              <div class="count-label">
+                Phút
+                <span class="en">Minutes</span>
+              </div>
+            </div>
+            <div class="count-box">
+              <div id="count-seconds" class="count-value">0</div>
+              <div class="count-label">
+                Giây
+                <span class="en">Seconds</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="countdown-message" class="countdown-message">
+            Chuyến bay tình yêu đang đếm ngược, chúng mình rất mong được gặp bạn!
+            <br>
+            Our love flight is counting down – we can't wait to see you there!
+          </div>
+
+          <p class="countdown-note">
+            Cảm ơn bạn vì đã là một phần trong hành trình của chúng mình. Sự hiện diện của bạn sẽ làm ngày cưới trở nên trọn vẹn hơn.
+            <br>
+            Thank you for being part of our story. Your presence will make our wedding day truly complete.
+          </p>
+
+          <p class="love-quote">
+            "Tình yêu không phải là nhìn nhau, mà là cùng nhìn về một hướng."
+            <br>
+            "Love does not consist in gazing at each other, but in looking outward together in the same direction."
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MUSIC PLAYER (GLOBAL) ----------------------------------->
+  <div class="music-player" aria-label="Background music player">
+    <button id="music-toggle" class="music-toggle-btn" aria-label="Play background music">
+      ▶
+    </button>
+    <div class="music-label">
+      <strong>Nhạc nền · Background music</strong>
+      <span>Nhấn play để nghe nhạc nền lãng mạn 💕 · Tap play to enjoy our romantic background music 💕</span>
+    </div>
+    <audio id="bg-music" src="music/wedding-song.mp3"></audio>
+  </div>
+
+  <!-- RSVP CONFIRMATION MODAL --------------------------------->
+  <div class="modal-overlay" id="rsvp-modal" role="dialog" aria-modal="true" aria-labelledby="rsvp-modal-title">
+    <div class="modal-content">
+      <button class="modal-close" data-close-modal="rsvp-modal" aria-label="Close message">×</button>
+      <h4 id="rsvp-modal-title">Cảm ơn bạn! · Thank you!</h4>
+      <p>
+        Cảm ơn bạn! Thông tin xác nhận đã được ghi nhận 💌
+        <br>
+        Thank you! Your boarding confirmation has been received 💌
+      </p>
+    </div>
+  </div>
+
+  <!-- GALLERY LIGHTBOX MODAL ---------------------------------->
+  <div class="modal-overlay lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
+    <div class="modal-content">
+      <button class="modal-close" data-close-modal="lightbox-modal" aria-label="Close image">×</button>
+      <div class="lightbox-inner">
+        <div class="lightbox-image-wrapper">
+          <img id="lightbox-img" src="" alt="Wedding moment">
+        </div>
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Với tất cả yêu thương từ
+    <span class="names">Minh Nghĩa &amp; Bảo Hân</span>
+    gửi đến gia đình và bạn bè.
+    <br>
+    With all our love, from Minh Nghia &amp; Bao Han to our dear family and friends.
+  </footer>
+
+  <!-- SCRIPTS ------------------------------------------------->
+  <script>
+    // NAVBAR & MOBILE MENU
+    const header = document.getElementById('site-header');
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    if (hamburgerBtn) {
+      hamburgerBtn.addEventListener('click', () => {
+        hamburgerBtn.classList.toggle('active');
+        mobileNav.classList.toggle('open');
+      });
+    }
+
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        hamburgerBtn.classList.remove('active');
+      });
+    });
+
+    // HERO PARALLAX
+    const heroVisual = document.getElementById('hero-visual');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      if (heroVisual) {
+        heroVisual.style.transform = `translateY(${scrollY * 0.08}px)`;
+      }
+    });
+
+    // RSVP FORM
+    const rsvpForm = document.getElementById('rsvp-form');
+    const rsvpModal = document.getElementById('rsvp-modal');
+
+    if (rsvpForm) {
+      rsvpForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        openModal('rsvp-modal');
+        setTimeout(() => {
+          rsvpForm.reset();
+        }, 300);
+      });
+    }
+
+    // MODALS
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) modal.classList.add('open');
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) modal.classList.remove('open');
+    }
+
+    document.querySelectorAll('.modal-close').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const modalId = btn.getAttribute('data-close-modal');
+        if (modalId) {
+          closeModal(modalId);
+        } else {
+          const overlay = btn.closest('.modal-overlay');
+          if (overlay) overlay.classList.remove('open');
+        }
+      });
+    });
+
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) overlay.classList.remove('open');
+      });
+    });
+
+    // GALLERY LIGHTBOX
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const lightboxModal = document.getElementById('lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+
+    galleryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        const src = img.getAttribute('src');
+        const alt = img.getAttribute('alt') || 'Wedding moment';
+        const captionVi = item.getAttribute('data-caption-vi') || '';
+        const captionEn = item.getAttribute('data-caption-en') || '';
+
+        lightboxImg.src = src;
+        lightboxImg.alt = alt;
+        lightboxCaption.innerHTML = `
+          ${captionVi ? captionVi : ''}<br>
+          <span style="opacity:0.8;">${captionEn ? captionEn : ''}</span>
+        `;
+        openModal('lightbox-modal');
+      });
+    });
+
+    // ESC closes modals
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (lightboxModal && lightboxModal.classList.contains('open')) {
+          lightboxModal.classList.remove('open');
+        }
+        if (rsvpModal && rsvpModal.classList.contains('open')) {
+          rsvpModal.classList.remove('open');
+        }
+      }
+    });
+
+    // MUSIC PLAYER
+    const musicToggle = document.getElementById('music-toggle');
+    const bgMusic = document.getElementById('bg-music');
+
+    if (musicToggle && bgMusic) {
+      musicToggle.addEventListener('click', async () => {
+        try {
+          if (bgMusic.paused) {
+            await bgMusic.play();
+            musicToggle.textContent = '⏸';
+            musicToggle.setAttribute('aria-label', 'Pause background music');
+          } else {
+            bgMusic.pause();
+            musicToggle.textContent = '▶';
+            musicToggle.setAttribute('aria-label', 'Play background music');
+          }
+        } catch (err) {
+          console.error('Cannot play audio automatically:', err);
+        }
+      });
+    }
+
+    // COUNTDOWN
+    const weddingDate = new Date('2025-12-29T17:00:00');
+    const daysEl = document.getElementById('count-days');
+    const hoursEl = document.getElementById('count-hours');
+    const minutesEl = document.getElementById('count-minutes');
+    const secondsEl = document.getElementById('count-seconds');
+    const countdownMessageEl = document.getElementById('countdown-message');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = weddingDate - now;
+
+      if (diff <= 0) {
+        daysEl.textContent = 0;
+        hoursEl.textContent = 0;
+        minutesEl.textContent = 0;
+        secondsEl.textContent = 0;
+        countdownMessageEl.innerHTML = `
+          Hôm nay là ngày cưới của chúng mình! 💒<br>
+          Today is our wedding day! 💒
+        `;
+        return;
+      }
+
+      const totalSeconds = Math.floor(diff / 1000);
+      const days = Math.floor(totalSeconds / (3600 * 24));
+      const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      daysEl.textContent = days;
+      hoursEl.textContent = hours;
+      minutesEl.textContent = minutes;
+      secondsEl.textContent = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // SCROLL REVEAL
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      revealElements.forEach(el => observer.observe(el));
+    } else {
+      revealElements.forEach(el => el.classList.add('visible'));
+    }
+  </script>
+</body>
+</html>
