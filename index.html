@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thiệp cưới Nghĩa &amp; Hân - Anh chị và các bạn sẽ tham gia chứ?</title>
+  <title>Thiệp cưới Nghĩa &amp; Hân – Bạn sẽ tham gia chứ?</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -214,7 +214,6 @@
     .title-names {
       font-family: "Great Vibes", cursive;
       font-size: 2rem;
-      text-align: center;
       line-height: 1.15;
       margin-bottom: 0.2rem;
       color: var(--dark-text);
@@ -228,17 +227,47 @@
     }
 
     .names-sub {
-      text-align: center;
       font-size: 0.85rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--rose-gold);
-      margin-bottom: 1.2rem;
+      margin-bottom: 0.6rem;
+    }
+
+    /* DÒNG MỜI KHÁCH NỔI BẬT --------------------------------- */
+    .guest-line {
+      display: none;
+      margin-bottom: 1rem;
+    }
+
+    .guest-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(248,201,218,0.9), rgba(255,247,240,0.95));
+      box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+      border: 1px solid rgba(199,146,127,0.5);
+    }
+
+    .guest-icon {
+      font-size: 1.1rem;
+    }
+
+    .guest-text {
+      font-size: 0.98rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    #guest-name {
+      margin-left: 0.25rem;
+      color: var(--rose-gold);
     }
 
     @media (min-width: 900px) {
       .title-names {
-        text-align: left;
         font-size: 2.7rem;
       }
       .names-sub {
@@ -248,13 +277,11 @@
 
     .question {
       font-size: 1.05rem;
-      text-align: center;
       margin-bottom: 0.35rem;
     }
 
     .question-sub {
       font-size: 0.86rem;
-      text-align: center;
       color: var(--muted-text);
       margin-bottom: 1.3rem;
     }
@@ -262,7 +289,6 @@
     @media (min-width: 900px) {
       .question,
       .question-sub {
-        text-align: left;
         max-width: 420px;
       }
     }
@@ -270,13 +296,13 @@
     /* button area --------------------------------------------- */
     .choice-area {
       display: flex;
-      justify-content: center;
+      justify-content: center; /* ở giữa như ban đầu */
       margin-top: 0.4rem;
     }
 
     @media (min-width: 900px) {
       .choice-area {
-        justify-content: flex-start;
+        justify-content: flex-start; /* desktop canh trái như bản gốc */
       }
     }
 
@@ -401,6 +427,10 @@
       .plane-icon {
         font-size: 3.6rem;
       }
+
+      .guest-text {
+        font-size: 0.9rem;
+      }
     }
 
     @media (min-width: 1200px) {
@@ -451,6 +481,17 @@
         <!-- Cột phải: Nội dung -->
         <div class="cover-right">
           <div>
+            <!-- DÒNG MỜI KHÁCH NỔI BẬT -->
+            <p class="guest-line" id="guest-line">
+              <span class="guest-pill">
+                <span class="guest-icon">🤍</span>
+                <span class="guest-text">
+                  <span data-i18n="guest.prefix"></span>
+                  <span id="guest-name"></span>
+                </span>
+              </span>
+            </p>
+
             <h1 class="title-names">
               Minh Nghĩa
               <span class="and">&amp;</span>
@@ -462,6 +503,7 @@
             <p class="question-sub" data-i18n="question.sub"></p>
 
             <div class="choice-area">
+              <!-- Điều hướng sang wedding-detail, giữ cả lang + guest + title -->
               <a href="wedding-detail.html" class="btn btn-open" id="open-btn">
                 <span data-i18n="btn.open"></span>
                 <span>✈️</span>
@@ -484,6 +526,7 @@
       vi: {
         'page.title': 'Thiệp cưới Nghĩa &amp; Hân – Mở thiệp cưới',
         'names.sub': 'NGÀY CƯỚI CỦA CHÚNG MÌNH',
+        'guest.prefix': 'Trân trọng kính mời',
         'question.main': 'Thiệp mời lên chuyến bay tình yêu 💌',
         'question.sub': 'Hãy mở thiệp để xem lời mời và chi tiết ngày cưới của chúng mình nhé.',
         'btn.open': 'Mở thiệp',
@@ -493,6 +536,7 @@
       en: {
         'page.title': 'Nghia &amp; Han\'s Wedding – Open invitation',
         'names.sub': 'OUR WEDDING DAY',
+        'guest.prefix': 'We warmly invite',
         'question.main': 'Boarding pass for our journey of love 💌',
         'question.sub': 'Open the invitation to see our message and all wedding details.',
         'btn.open': 'Open invitation',
@@ -502,6 +546,7 @@
       ru: {
         'page.title': 'Свадьба Нгиа и Хан – Открыть приглашение',
         'names.sub': 'НАША СВАДЬБА',
+        'guest.prefix': 'С тёплым приглашением для',
         'question.main': 'Приглашение на наш рейс любви 💌',
         'question.sub': 'Откройте приглашение, чтобы увидеть послание и детали свадьбы.',
         'btn.open': 'Открыть приглашение',
@@ -511,6 +556,37 @@
     };
 
     const STORAGE_KEY = 'weddingPreferredLang';
+
+    function getGuestInfo() {
+      const params = new URLSearchParams(window.location.search);
+      const guest = params.get('guest') || '';
+      const rawTitle = (params.get('title') || '').trim().toLowerCase();
+
+      let title = '';
+      if (rawTitle === 'mr') title = 'Mr';
+      else if (rawTitle === 'ms') title = 'Ms';
+      else if (rawTitle === 'mrs') title = 'Mrs';
+      else if (rawTitle === 'family') title = 'Family';
+
+      return { guest, title };
+    }
+
+    function updateGuestLine() {
+      const { guest, title } = getGuestInfo();
+      const guestLineEl = document.getElementById('guest-line');
+      const guestNameEl = document.getElementById('guest-name');
+
+      if (!guestLineEl || !guestNameEl) return;
+
+      if (guest) {
+        guestLineEl.style.display = 'block';
+        const displayName = (title ? title + ' ' : '') + guest;
+        guestNameEl.textContent = ' ' + displayName;
+      } else {
+        guestLineEl.style.display = 'none';
+        guestNameEl.textContent = '';
+      }
+    }
 
     function setLanguage(lang) {
       const dict = translations[lang];
@@ -531,8 +607,10 @@
         }
       });
 
-      // lưu lại lựa chọn
       localStorage.setItem(STORAGE_KEY, lang);
+
+      // cập nhật lại dòng mời khách (tên giữ nguyên, chỉ đổi câu xưng hô)
+      updateGuestLine();
     }
 
     const langButtons = document.querySelectorAll('.lang-btn');
@@ -554,7 +632,7 @@
         btn.classList.remove('active');
       }
     });
-    setLanguage(savedLang);
+    setLanguage(savedLang); // gọi luôn updateGuestLine() bên trong
 
     /* =========================
        HIỆU ỨNG MÁY BAY & ĐI TỚI TRANG CHI TIẾT
@@ -570,9 +648,19 @@
         const rawTarget = openBtn.getAttribute('href') || '#';
         const currentLang = document.documentElement.getAttribute('lang') || 'vi';
 
-        // thêm ?lang=xx vào URL
         const url = new URL(rawTarget, window.location.href);
+        // giữ ngôn ngữ
         url.searchParams.set('lang', currentLang);
+
+        // giữ guest + title
+        const { guest, title } = getGuestInfo();
+        if (guest) {
+          url.searchParams.set('guest', guest);
+        }
+        if (title) {
+          url.searchParams.set('title', title);
+        }
+
         const finalHref = url.toString();
 
         // Hiện overlay

@@ -525,6 +525,24 @@
     .ticket-field-value {
       font-size: 0.95rem;
       font-weight: 600;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+      align-items: baseline;
+    }
+
+    /* Passenger airline style */
+    #passenger-prefix {
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      color: var(--muted-text);
+    }
+
+    #guest-name-passenger {
+      color: var(--rose-gold);
+      font-weight: 700;
+      text-transform: uppercase;
     }
 
     .airport-row {
@@ -615,12 +633,6 @@
       align-items: center;
       justify-content: center;
       font-size: 0.9rem;
-    }
-
-    .stub-qr-box img {
-      max-width: 80%;
-      max-height: 80%;
-      display: block;
     }
 
     .stub-footer {
@@ -1067,7 +1079,11 @@
               <div class="ticket-rows">
                 <div>
                   <div class="ticket-field-label" data-i18n="boarding.passengerLabel"></div>
-                  <div class="ticket-field-value" data-i18n="boarding.passengerValue"></div>
+                  <!-- Passenger line: TITLE + NAME (uppercased) -->
+                  <div class="ticket-field-value" id="passenger-value">
+                    <span id="passenger-prefix"></span>
+                    <span id="guest-name-passenger"></span>
+                  </div>
                 </div>
                 <div>
                   <div class="ticket-field-label" data-i18n="boarding.fromLabel"></div>
@@ -1147,7 +1163,7 @@
 
                 <div class="stub-qr">
                   <div class="stub-qr-box">
-                    <img src="QR.jfif" alt="QR bản đồ tiệc cưới">
+                    QR
                   </div>
                   <div data-i18n="stub.qrText"></div>
                 </div>
@@ -1321,7 +1337,8 @@
         'boarding.subtitle':
           'Thiệp mời lên chuyến bay tình yêu của chúng mình – nơi anh chị và các bạn luôn có một chỗ ngồi thật ấm áp trong trái tim.',
         'boarding.passengerLabel': 'Hành khách',
-        'boarding.passengerValue': 'Kính mời: Quý khách',
+        'boarding.passengerPrefix': 'MR / MS',
+        'boarding.passengerPlaceholder': 'GUEST NAME',
         'boarding.fromLabel': 'Đi từ',
         'boarding.fromValue': 'Nhà',
         'boarding.toLabel': 'Đến',
@@ -1374,7 +1391,7 @@
         'details.ceremony.name': 'Lễ cưới',
         'details.ceremony.sub': '',
         'details.ceremony.time': '18:30 · Chiều',
-        'details.ceremony.location': 'Phòng tiệc Princess',
+        'details.ceremony.location': 'Phòng tiệc Queen',
         'details.reception.name': 'Tiệc cưới',
         'details.reception.sub': '',
         'details.reception.time': '18:30 – 21:30',
@@ -1436,7 +1453,8 @@
         'boarding.subtitle':
           'A boarding pass for our love flight – where there is always a warm seat reserved for you in our hearts.',
         'boarding.passengerLabel': 'Passenger',
-        'boarding.passengerValue': 'Dear Guest',
+        'boarding.passengerPrefix': 'MR / MS',
+        'boarding.passengerPlaceholder': 'GUEST NAME',
         'boarding.fromLabel': 'From',
         'boarding.fromValue': 'Your home',
         'boarding.toLabel': 'To',
@@ -1489,7 +1507,7 @@
         'details.ceremony.name': 'Wedding Ceremony',
         'details.ceremony.sub': '',
         'details.ceremony.time': '6:30 PM',
-        'details.ceremony.location': 'Princess Room',
+        'details.ceremony.location': 'Queen Room',
         'details.reception.name': 'Wedding Reception',
         'details.reception.sub': '',
         'details.reception.time': '6:30 PM – 9:30 PM',
@@ -1551,7 +1569,8 @@
         'boarding.subtitle':
           'Посадочный талон на наш рейс любви — в нашем сердце для вас всегда есть тёплое место.',
         'boarding.passengerLabel': 'Пассажир',
-        'boarding.passengerValue': 'Дорогой гость',
+        'boarding.passengerPrefix': 'MR / MS',
+        'boarding.passengerPlaceholder': 'GUEST NAME',
         'boarding.fromLabel': 'Откуда',
         'boarding.fromValue': 'Ваш дом',
         'boarding.toLabel': 'Куда',
@@ -1604,7 +1623,7 @@
         'details.ceremony.name': 'Церемония',
         'details.ceremony.sub': '',
         'details.ceremony.time': '18:30',
-        'details.ceremony.location': 'Зал Princess',
+        'details.ceremony.location': 'Зал Queen',
         'details.reception.name': 'Свадебный банкет',
         'details.reception.sub': '',
         'details.reception.time': '18:30 – 21:30',
@@ -1639,6 +1658,23 @@
 
     const STORAGE_KEY = 'weddingPreferredLang';
     let currentLang = 'vi';
+
+    function getGuestInfo() {
+      const params = new URLSearchParams(window.location.search);
+      const guest = params.get('guest') || '';
+      const rawTitle = (params.get('title') || '').trim().toLowerCase();
+
+      const titleMap = {
+        mr: 'MR',
+        ms: 'MS',
+        mrs: 'MRS',
+        family: 'FAMILY'
+      };
+
+      const titleCode = titleMap[rawTitle] || '';
+
+      return { guest, titleCode };
+    }
 
     /* ========================
        NAVBAR & MOBILE MENU
@@ -1681,6 +1717,34 @@
     });
 
     /* ========================
+       PASSENGER LINE (TITLE + NAME)
+    ======================== */
+    const passengerPrefixEl = document.getElementById('passenger-prefix');
+    const passengerNameEl = document.getElementById('guest-name-passenger');
+
+    function updatePassengerLine() {
+      if (!passengerPrefixEl || !passengerNameEl) return;
+
+      const dict = translations[currentLang] || translations['vi'];
+      const fallbackPrefix = dict['boarding.passengerPrefix'] || 'MR / MS';
+      const placeholder = dict['boarding.passengerPlaceholder'] || 'GUEST NAME';
+
+      const { guest, titleCode } = getGuestInfo();
+
+      if (guest) {
+        passengerNameEl.textContent = ' ' + guest.toUpperCase();
+        if (titleCode) {
+          passengerPrefixEl.textContent = titleCode;
+        } else {
+          passengerPrefixEl.textContent = fallbackPrefix;
+        }
+      } else {
+        passengerPrefixEl.textContent = '';
+        passengerNameEl.textContent = placeholder;
+      }
+    }
+
+    /* ========================
        LANGUAGE SWITCH
     ======================== */
     const langButtons = document.querySelectorAll('.lang-btn');
@@ -1712,6 +1776,9 @@
 
       // lưu lại lựa chọn
       localStorage.setItem(STORAGE_KEY, lang);
+
+      // cập nhật Passenger airline style
+      updatePassengerLine();
     }
 
     function getInitialLang() {
@@ -1827,6 +1894,9 @@
     } else {
       revealElements.forEach(el => el.classList.add('visible'));
     }
+
+    // Lần đầu vào trang, set Passenger line sau khi mọi thứ load
+    updatePassengerLine();
   </script>
 </body>
 </html>
