@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thiệp cưới Nghĩa &amp; Hân – Bạn sẽ tham gia chứ?</title>
+  <title>Thiệp cưới Nghĩa &amp; Hân - Anh chị và các bạn sẽ tham gia chứ?</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -72,6 +72,42 @@
       100% { transform: translateY(-140vh); opacity: 0; }
     }
 
+    /* LANGUAGE SWITCH (góc trên phải) ------------------------- */
+    .lang-switch {
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      z-index: 20;
+      display: flex;
+      gap: 0.25rem;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 999px;
+      padding: 0.18rem 0.35rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+      border: 1px solid rgba(199,146,127,0.35);
+      backdrop-filter: blur(6px);
+    }
+
+    .lang-btn {
+      border-radius: 999px;
+      border: none;
+      padding: 0.15rem 0.6rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: transparent;
+      color: var(--muted-text);
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .lang-btn.active {
+      background: linear-gradient(135deg, var(--rose-gold), var(--pink-main));
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+    }
+
     /* main wrapper -------------------------------------------- */
     .cover-wrapper {
       position: relative;
@@ -110,7 +146,6 @@
       flex-direction: column;
     }
 
-    /* layout cho 2 cột ngang trên màn hình rộng */
     @media (min-width: 900px) {
       .cover-inner {
         display: grid;
@@ -120,12 +155,10 @@
     }
 
     .cover-left {
-      position: relative;
       padding: 1.5rem 1.5rem 0.75rem;
     }
 
     .cover-right {
-      position: relative;
       padding: 1.5rem 1.7rem 1.6rem;
       display: flex;
       flex-direction: column;
@@ -147,8 +180,8 @@
       position: relative;
       background: #f3d7df;
       box-shadow: 0 16px 32px rgba(0,0,0,0.18);
-      height: 100%;
       min-height: 220px;
+      height: 100%;
     }
 
     @media (min-width: 900px) {
@@ -179,13 +212,13 @@
     }
 
     .title-names {
-    font-family: "Great Vibes", cursive;
-    font-size: 2rem;
-    text-align: center;
-    line-height: 1.15;
-    margin-bottom: 0.2rem;
-    color: var(--dark-text);
-    white-space: nowrap;        /* luôn giữ trên 1 hàng */
+      font-family: "Great Vibes", cursive;
+      font-size: 2rem;
+      text-align: center;
+      line-height: 1.15;
+      margin-bottom: 0.2rem;
+      color: var(--dark-text);
+      white-space: nowrap;
     }
 
     .title-names span.and {
@@ -234,29 +267,22 @@
       }
     }
 
-    /* buttons area -------------------------------------------- */
+    /* button area --------------------------------------------- */
     .choice-area {
-      position: relative;           /* vùng chứa cho nút No chạy */
-      min-height: 110px;
       display: flex;
       justify-content: center;
-      align-items: center;
-      column-gap: 0.75rem;
-      row-gap: 0.75rem;
-      flex-wrap: wrap;
-      margin-bottom: 0.4rem;
+      margin-top: 0.4rem;
     }
 
     @media (min-width: 900px) {
       .choice-area {
         justify-content: flex-start;
-        min-height: 120px;
       }
     }
 
     .btn {
       border-radius: 999px;
-      padding: 0.7rem 1.6rem;
+      padding: 0.7rem 1.8rem;
       font-size: 0.88rem;
       font-weight: 600;
       letter-spacing: 0.12em;
@@ -268,7 +294,7 @@
       transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
     }
 
-    .btn-yes {
+    .btn-open {
       background: linear-gradient(135deg, var(--rose-gold), var(--pink-main));
       color: #fff;
       box-shadow: 0 16px 36px rgba(0,0,0,0.26);
@@ -278,45 +304,14 @@
       gap: 0.4rem;
     }
 
-    .btn-yes:hover {
+    .btn-open:hover {
       transform: translateY(-1px);
       box-shadow: 0 18px 40px rgba(0,0,0,0.32);
     }
 
-    .btn-yes:active {
+    .btn-open:active {
       transform: translateY(1px);
       box-shadow: 0 12px 26px rgba(0,0,0,0.24);
-    }
-
-    .btn-no {
-      background: #fff;
-      color: var(--rose-gold);
-      border: 1px solid rgba(199,146,127,0.75);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.14);
-    }
-
-    .btn-no:hover {
-      background: #fff7fb;
-    }
-
-    /* khi bắt đầu chạy: chạy trong vùng choice-area */
-    .btn-no.floating {
-      position: absolute;          /* absolute trong choice-area */
-      z-index: 5;
-      transition: left 0.22s ease-out, top 0.22s ease-out;
-    }
-
-    .hint {
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--muted-text);
-      margin-bottom: 0.4rem;
-    }
-
-    @media (min-width: 900px) {
-      .hint {
-        text-align: left;
-      }
     }
 
     .footer-mini {
@@ -324,6 +319,10 @@
       font-size: 0.75rem;
       color: var(--muted-text);
       padding: 0 1.2rem 1.1rem;
+    }
+
+    .footer-mini .names-group {
+      white-space: nowrap;
     }
 
     .footer-mini span.names {
@@ -395,7 +394,6 @@
       100% { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    /* responsive tweaks --------------------------------------- */
     @media (max-width: 480px) {
       body {
         padding: 1.2rem;
@@ -420,6 +418,13 @@
     <div class="float-item">💕</div>
   </div>
 
+  <!-- Language switch -->
+  <div class="lang-switch" aria-label="Language switcher">
+    <button class="lang-btn active" data-lang="vi">VI</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="ru">RU</button>
+  </div>
+
   <!-- Overlay máy bay -->
   <div class="plane-overlay" id="plane-overlay">
     <div class="plane-icon">✈️</div>
@@ -436,7 +441,6 @@
         <!-- Cột trái: Ảnh -->
         <div class="cover-left">
           <div class="photo-wrap">
-            <!-- Đổi src thành ảnh của hai vợ chồng -->
             <img
               src="/Image.jfif"
               alt="Minh Nghĩa &amp; Bảo Hân"
@@ -452,133 +456,124 @@
               <span class="and">&amp;</span>
               Bảo Hân
             </h1>
-            <div class="names-sub">
-              OUR WEDDING DAY
-            </div>
+            <div class="names-sub" data-i18n="names.sub"></div>
 
-            <p class="question">
-              Bạn sẽ tham gia chứ? 💌
-            </p>
-            <p class="question-sub">
-              Will you join us on our special day?
-            </p>
+            <p class="question" data-i18n="question.main"></p>
+            <p class="question-sub" data-i18n="question.sub"></p>
 
-            <div class="choice-area" id="choice-area">
-              <!-- Đổi href sang trang thiệp cưới chi tiết -->
-              <a href="wedding-detail.html" class="btn btn-yes" id="yes-btn">
-                <span>Yes</span>
+            <div class="choice-area">
+              <a href="wedding-detail.html" class="btn btn-open" id="open-btn">
+                <span data-i18n="btn.open"></span>
                 <span>✈️</span>
               </a>
-
-              <button type="button" class="btn btn-no" id="no-btn">
-                No
-              </button>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="footer-mini">
-        With love from
-        <span class="names">Minh Nghĩa</span>
-        &
-        <span class="names">Bảo Hân</span>
+      <div class="footer-mini" data-i18n="footer.text">
       </div>
     </div>
   </div>
 
   <script>
-    const noBtn = document.getElementById('no-btn');
-    const yesBtn = document.getElementById('yes-btn');
-    const choiceArea = document.getElementById('choice-area');
+    /* ========================
+       TRANSLATIONS
+    ======================== */
+    const translations = {
+      vi: {
+        'page.title': 'Thiệp cưới Nghĩa &amp; Hân – Mở thiệp cưới',
+        'names.sub': 'NGÀY CƯỚI CỦA CHÚNG MÌNH',
+        'question.main': 'Thiệp mời lên chuyến bay tình yêu 💌',
+        'question.sub': 'Hãy mở thiệp để xem lời mời và chi tiết ngày cưới của chúng mình nhé.',
+        'btn.open': 'Mở thiệp',
+        'footer.text':
+          'Gửi lời mời với tất cả yêu thương từ <span class="names-group"><span class="names">Minh Nghĩa</span> &amp; <span class="names">Bảo Hân</span></span>.'
+      },
+      en: {
+        'page.title': 'Nghia &amp; Han\'s Wedding – Open invitation',
+        'names.sub': 'OUR WEDDING DAY',
+        'question.main': 'Boarding pass for our journey of love 💌',
+        'question.sub': 'Open the invitation to see our message and all wedding details.',
+        'btn.open': 'Open invitation',
+        'footer.text':
+          'With love from <span class="names-group"><span class="names">Minh Nghia</span> &amp; <span class="names">Bao Han</span></span>.'
+      },
+      ru: {
+        'page.title': 'Свадьба Нгиа и Хан – Открыть приглашение',
+        'names.sub': 'НАША СВАДЬБА',
+        'question.main': 'Приглашение на наш рейс любви 💌',
+        'question.sub': 'Откройте приглашение, чтобы увидеть послание и детали свадьбы.',
+        'btn.open': 'Открыть приглашение',
+        'footer.text':
+          'С любовью, <span class="names-group"><span class="names">Минь Нгиа</span> &amp; <span class="names">Бао Хан</span></span>.'
+      }
+    };
 
-    // Kiểm tra overlap giữa 2 hình chữ nhật
-    function isOverlap(ax, ay, aw, ah, bx, by, bw, bh) {
-      return !(
-        ax + aw < bx ||
-        ax > bx + bw ||
-        ay + ah < by ||
-        ay > by + bh
-      );
-    }
+    const STORAGE_KEY = 'weddingPreferredLang';
 
-    function moveNoButton() {
-      if (!noBtn || !choiceArea || !yesBtn) return;
+    function setLanguage(lang) {
+      const dict = translations[lang];
+      if (!dict) return;
 
-      // Lần đầu: bật chế độ floating
-      if (!noBtn.classList.contains('floating')) {
-        noBtn.classList.add('floating');
+      document.documentElement.setAttribute('lang', lang);
+
+      if (dict['page.title']) {
+        document.title = dict['page.title'].replace(/&amp;/g, '&');
       }
 
-      const areaRect = choiceArea.getBoundingClientRect();
-      const btnRect = noBtn.getBoundingClientRect();
-      const yesRect = yesBtn.getBoundingClientRect();
-
-      const padding = 4;
-      const marginAroundYes = 10; // vùng đệm quanh nút Yes, tránh bị chồng lên
-
-      const btnWidth = btnRect.width;
-      const btnHeight = btnRect.height;
-
-      const maxX = Math.max(areaRect.width - btnWidth - padding * 2, 0);
-      const maxY = Math.max(areaRect.height - btnHeight - padding * 2, 0);
-
-      // Tọa độ nút Yes tương đối so với choice-area
-      const yesRelX = yesRect.left - areaRect.left;
-      const yesRelY = yesRect.top - areaRect.top;
-      const yesWidth = yesRect.width;
-      const yesHeight = yesRect.height;
-
-      // Vùng cần tránh (Yes + margin)
-      const avoidX = yesRelX - marginAroundYes;
-      const avoidY = yesRelY - marginAroundYes;
-      const avoidW = yesWidth + marginAroundYes * 2;
-      const avoidH = yesHeight + marginAroundYes * 2;
-
-      let randX, randY;
-      const maxTries = 30;
-      let tries = 0;
-
-      do {
-        randX = padding + Math.random() * maxX;
-        randY = padding + Math.random() * maxY;
-        tries++;
-      } while (
-        isOverlap(randX, randY, btnWidth, btnHeight, avoidX, avoidY, avoidW, avoidH) &&
-        tries < maxTries
-      );
-
-      noBtn.style.left = randX + 'px';
-      noBtn.style.top  = randY + 'px';
-    }
-
-    if (noBtn) {
-      noBtn.addEventListener('mouseenter', (e) => {
-        moveNoButton();
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const text = dict[key];
+        if (typeof text !== 'undefined') {
+          el.innerHTML = text;
+        }
       });
 
-      noBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        moveNoButton();
-      });
-
-      noBtn.addEventListener('touchstart', (e) => {
-        e.preventDefault();
-        moveNoButton();
-      }, { passive: false });
+      // lưu lại lựa chọn
+      localStorage.setItem(STORAGE_KEY, lang);
     }
 
-    // =========================
-    // HIỆU ỨNG MÁY BAY & ÂM THANH & ĐI TỚI TRANG CHI TIẾT
-    // =========================
+    const langButtons = document.querySelectorAll('.lang-btn');
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        langButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        setLanguage(lang);
+      });
+    });
+
+    // Áp dụng ngôn ngữ đã lưu (nếu có)
+    const savedLang = localStorage.getItem(STORAGE_KEY) || 'vi';
+    langButtons.forEach(btn => {
+      if (btn.getAttribute('data-lang') === savedLang) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+    setLanguage(savedLang);
+
+    /* =========================
+       HIỆU ỨNG MÁY BAY & ĐI TỚI TRANG CHI TIẾT
+    ========================= */
+    const openBtn = document.getElementById('open-btn');
     const planeOverlay = document.getElementById('plane-overlay');
     const planeSound = document.getElementById('plane-sound');
 
-    if (yesBtn && planeOverlay) {
-      yesBtn.addEventListener('click', (e) => {
+    if (openBtn && planeOverlay) {
+      openBtn.addEventListener('click', (e) => {
         e.preventDefault();
 
-        const targetUrl = yesBtn.getAttribute('href') || '#';
+        const rawTarget = openBtn.getAttribute('href') || '#';
+        const currentLang = document.documentElement.getAttribute('lang') || 'vi';
+
+        // thêm ?lang=xx vào URL
+        const url = new URL(rawTarget, window.location.href);
+        url.searchParams.set('lang', currentLang);
+        const finalHref = url.toString();
 
         // Hiện overlay
         planeOverlay.classList.add('active');
@@ -597,7 +592,7 @@
 
         // Điều hướng sau khi animation xong
         setTimeout(() => {
-          window.location.href = targetUrl;
+          window.location.href = finalHref;
         }, 1500);
       });
     }

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thiệp cưới Boarding Pass – Nghĩa &amp; Hân</title>
-  <meta name="description" content="Thiệp mời lên chuyến bay tình yêu của Nghĩa &amp; Hân – Boarding pass for our journey of love. Thiệp cưới song ngữ Việt - Anh với phong cách vé máy bay hạng thương gia." />
+  <meta name="description" content="Thiệp mời lên chuyến bay tình yêu của Nghĩa &amp; Hân – Boarding pass for our journey of love. Thiệp cưới đa ngôn ngữ với phong cách vé máy bay hạng thương gia." />
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -42,7 +42,7 @@
       color: var(--dark-text);
       line-height: 1.6;
       padding-top: var(--nav-height);
-      overflow-x: hidden; /* CHẶN TRÀN NGANG */
+      overflow-x: hidden;
     }
 
     img {
@@ -60,7 +60,6 @@
       cursor: pointer;
     }
 
-    /* MOBILE-FIRST SECTION PADDING */
     section {
       padding: 2.5rem 1.1rem;
       scroll-margin-top: calc(var(--nav-height) + 16px);
@@ -124,6 +123,13 @@
       padding: 0 1.1rem;
       max-width: 1120px;
       margin: 0 auto;
+      gap: 0.75rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
     }
 
     .nav-logo {
@@ -246,6 +252,33 @@
       display: flex;
     }
 
+    /* LANGUAGE SWITCHER -------------------------------------- */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.78rem;
+    }
+
+    .lang-btn {
+      border-radius: 999px;
+      border: 1px solid rgba(199, 146, 127, 0.4);
+      background: rgba(255, 255, 255, 0.9);
+      padding: 0.18rem 0.55rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted-text);
+      transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .lang-btn.active {
+      background: linear-gradient(135deg, var(--rose-gold), var(--pink-main));
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.14);
+      border-color: transparent;
+    }
+
     /* HERO SECTION -------------------------------------------- */
     #hero {
       padding-top: 3rem;
@@ -307,21 +340,26 @@
       box-shadow: var(--shadow-soft);
     }
 
-    .hero-names {
-      font-family: "Great Vibes", cursive;
-      font-size: 2.2rem;
-      line-height: 1.1;
-      margin-bottom: 0.4rem;
-      text-align: left;
-    }
-
     .hero-line {
       font-size: 0.9rem;
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--rose-gold);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .hero-line + .hero-line {
+      letter-spacing: 0.16em;
+      font-size: 0.72rem;
+    }
+
+    .hero-names {
+      font-family: "Great Vibes", cursive;
+      font-size: 2.2rem;
+      line-height: 1.1;
+      margin: 0.35rem 0 0.5rem;
+      text-align: left;
     }
 
     .hero-date-block {
@@ -342,11 +380,7 @@
 
     .hero-tagline {
       font-size: 0.9rem;
-      margin-bottom: 0.65rem;
-    }
-
-    .hero-tagline + .hero-tagline {
-      margin-top: -0.2rem;
+      margin-bottom: 0.5rem;
     }
 
     .hero-note {
@@ -380,7 +414,7 @@
       transition: transform var(--transition-fast), box-shadow var(--transition-fast);
       text-align: center;
       flex-wrap: wrap;
-      max-width: 100%; /* không cho nút lớn hơn container */
+      max-width: 100%;
     }
 
     .btn-primary:hover {
@@ -411,13 +445,9 @@
       width: 100%;
       overflow: hidden;
       display: grid;
-      grid-template-columns: 1fr; /* MOBILE: 1 cột */
+      grid-template-columns: 1fr;
       position: relative;
       isolation: isolate;
-    }
-
-    .boarding-card::before {
-      content: none;
     }
 
     .ticket-main,
@@ -425,14 +455,9 @@
       padding: 1.3rem 1.3rem;
     }
 
-    .ticket-main {
-      position: relative;
-    }
-
     .ticket-stub {
       background: linear-gradient(135deg, #ffeaf3, #fbe5da);
       border-top: 1px dashed rgba(199, 146, 127, 0.3);
-      border-left: none;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -592,27 +617,18 @@
       font-size: 0.9rem;
     }
 
+    .stub-qr-box img {
+      max-width: 80%;
+      max-height: 80%;
+      display: block;
+    }
+
     .stub-footer {
       font-size: 0.7rem;
       color: var(--muted-text);
     }
 
-    /* JOURNEY WRAPPER (nếu dùng) ------------------------------ */
-    .journey-wrapper {
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: var(--radius-large);
-      padding: 1.8rem 1.4rem 1.9rem;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      display: grid;
-      gap: 2rem;
-    }
-
-    .journey-text {
-      font-size: 0.9rem;
-    }
-
-    /* EVENT DETAILS SECTION (FLIGHT BOARD) -------------------- */
+    /* EVENT DETAILS SECTION ----------------------------------- */
     .flight-board {
       border-radius: var(--radius-large);
       background: rgba(255, 255, 255, 0.92);
@@ -693,124 +709,6 @@
       color: var(--dark-text);
     }
 
-    /* RSVP SECTION -------------------------------------------- */
-    .rsvp-card {
-      border-radius: var(--radius-large);
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: var(--shadow-soft);
-      padding: 1.4rem 1.3rem 1.7rem;
-      border: 1px solid rgba(255, 255, 255, 0.85);
-      max-width: 720px;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    .rsvp-card p {
-      font-size: 0.88rem;
-      color: var(--muted-text);
-      margin-bottom: 1.1rem;
-      text-align: center;
-    }
-
-    .rsvp-form {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      font-size: 0.85rem;
-    }
-
-    .form-field label {
-      font-weight: 500;
-    }
-
-    .form-label-en {
-      font-weight: 400;
-      font-size: 0.8rem;
-      color: var(--muted-text);
-    }
-
-    .form-field input,
-    .form-field select,
-    .form-field textarea {
-      border-radius: 12px;
-      border: 1px solid rgba(227, 214, 214, 0.9);
-      padding: 0.55rem 0.75rem;
-      font-size: 0.86rem;
-      font-family: inherit;
-      outline: none;
-      background: #fff;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-      width: 100%;          /* ĐẢM BẢO KHÔNG VƯỢT QUÁ CARD */
-      max-width: 100%;
-    }
-
-    .form-field textarea {
-      min-height: 80px;
-      resize: vertical;
-    }
-
-    .form-field input:focus,
-    .form-field textarea:focus,
-    .form-field select:focus {
-      border-color: var(--rose-gold);
-      box-shadow: 0 0 0 3px rgba(199, 146, 127, 0.15);
-      background: #fff9fc;
-    }
-
-    .rsvp-actions {
-      display: flex;
-      justify-content: center;
-      margin-top: 0.5rem;
-    }
-
-    /* GALLERY SECTION (nếu dùng) ------------------------------ */
-    .gallery-grid {
-      display: grid;
-      gap: 0.75rem;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .gallery-item {
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-      cursor: pointer;
-      background: #f7e2ea;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-      transform: translateY(0);
-      transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.22s ease;
-    }
-
-    .gallery-item:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
-      filter: brightness(1.03);
-    }
-
-    .gallery-caption {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 0.4rem 0.5rem 0.5rem;
-      font-size: 0.72rem;
-      background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.55));
-      color: #fff;
-    }
-
     /* COUNTDOWN SECTION --------------------------------------- */
     .countdown-wrapper {
       max-width: 720px;
@@ -866,56 +764,7 @@
       color: var(--dark-text);
     }
 
-    /* MUSIC PLAYER -------------------------------------------- */
-    .music-player {
-      position: fixed;
-      right: 0.8rem;
-      bottom: 0.8rem;
-      z-index: 1001;
-      background: rgba(255, 246, 248, 0.95);
-      border-radius: 999px;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      padding: 0.45rem 0.75rem 0.45rem 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      font-size: 0.78rem;
-      backdrop-filter: blur(8px);
-      max-width: calc(100% - 1.6rem);
-    }
-
-    .music-toggle-btn {
-      width: 30px;
-      height: 30px;
-      border-radius: 999px;
-      border: none;
-      background: linear-gradient(135deg, var(--rose-gold), var(--pink-main));
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
-      flex-shrink: 0;
-    }
-
-    .music-label {
-      display: flex;
-      flex-direction: column;
-      gap: 0.1rem;
-    }
-
-    .music-label strong {
-      font-size: 0.78rem;
-    }
-
-    .music-label span {
-      font-size: 0.72rem;
-      color: var(--muted-text);
-    }
-
-    /* MODALS -------------------------------------------------- */
+    /* MODALS (lightbox) -------------------------------------- */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -959,17 +808,6 @@
       justify-content: center;
     }
 
-    .modal-content h4 {
-      font-size: 1.05rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .modal-content p {
-      font-size: 0.86rem;
-      color: var(--muted-text);
-    }
-
-    /* LIGHTBOX MODAL ----------------------------------------- */
     .lightbox-modal .modal-content {
       max-width: 860px;
       padding: 0.7rem;
@@ -1022,7 +860,7 @@
       color: var(--rose-gold);
     }
 
-    /* SCROLL REVEAL ANIMATIONS -------------------------------- */
+    /* SCROLL REVEAL ------------------------------------------ */
     .reveal-on-scroll {
       opacity: 0;
       transform: translateY(24px);
@@ -1070,10 +908,6 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
-      .gallery-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
       .countdown-grid {
         grid-template-columns: repeat(4, minmax(0, 1fr));
       }
@@ -1089,11 +923,6 @@
         display: none;
       }
 
-      nav {
-        font-size: 0.86rem;
-      }
-
-      /* Boarding pass: 2 cột trên tablet/desktop */
       .boarding-card {
         grid-template-columns: 2fr 1.1fr;
       }
@@ -1115,17 +944,6 @@
         border-top: none;
         border-left: 1px dashed rgba(199, 146, 127, 0.3);
       }
-
-      .location-card {
-        grid-template-columns: 2fr 1fr;
-        align-items: center;
-      }
-
-      .journey-wrapper {
-        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-        align-items: flex-start;
-        padding: 2.1rem 2rem 2.2rem;
-      }
     }
 
     @media (min-width: 900px) {
@@ -1137,106 +955,83 @@
       .hero-visual {
         min-height: 340px;
       }
-
-      .music-player {
-        right: 2rem;
-        bottom: 2rem;
-      }
     }
 
-    /* MOBILE EXTRA TWEAKS ------------------------------------- */
     @media (max-width: 480px) {
       .flight-board-header {
         justify-content: center;
         text-align: center;
       }
-
-      /* Chỉ nút trong RSVP card mới full-width */
-      .rsvp-actions .btn-primary {
-        width: 100%;
-      }
     }
   </style>
 </head>
 <body>
-  <!-- HERO SECTION -------------------------------------------->
+  <!-- HEADER / NAV ------------------------------------------->
   <header id="site-header">
     <nav class="navbar">
-      <div class="nav-logo">
-        <span class="logo-icon">✈️</span>
-        <span>LOVE CLASS</span>
+      <div class="nav-left">
+        <div class="nav-logo">
+          <span class="logo-icon">✈️</span>
+          <span>LOVE CLASS</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#boarding-pass" data-i18n="nav.boarding"></a></li>
+          <li><a href="#details" data-i18n="nav.details"></a></li>
+          <li><a href="#countdown" data-i18n="nav.countdown"></a></li>
+        </ul>
       </div>
-      <ul class="nav-links">
-        <li><a href="#boarding-pass">Vé mời / Boarding Pass</a></li>
-        <li><a href="#journey">Hành trình / Journey</a></li>
-        <li><a href="#details">Thông tin / Details</a></li>
-        <li><a href="#rsvp">RSVP</a></li>
-        <li><a href="#location">Địa điểm / Location</a></li>
-        <li><a href="#gallery">Khoảnh khắc / Gallery</a></li>
-      </ul>
+
+      <div class="lang-switch" aria-label="Language switcher">
+        <button class="lang-btn active" data-lang="vi">VI</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+      </div>
+
       <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation">
         <span class="hamburger-line"></span>
       </button>
     </nav>
+
     <div class="nav-links-mobile" id="mobile-nav">
-      <a href="#boarding-pass">Vé mời / Boarding Pass</a>
-      <a href="#journey">Hành trình / Journey</a>
-      <a href="#details">Thông tin / Details</a>
-      <a href="#rsvp">RSVP</a>
-      <a href="#location">Địa điểm / Location</a>
-      <a href="#gallery">Khoảnh khắc / Gallery</a>
-      <a href="#countdown">Đếm ngược / Countdown</a>
+      <a href="#boarding-pass" data-i18n="nav.boarding"></a>
+      <a href="#details" data-i18n="nav.details"></a>
+      <a href="#countdown" data-i18n="nav.countdown"></a>
     </div>
   </header>
 
   <main>
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION ------------------------------------------>
     <section id="hero" class="reveal-on-scroll">
       <div class="container">
         <div class="hero-inner">
           <div class="hero-visual" id="hero-visual">
             <div class="hero-overlay"></div>
-            <div class="hero-badge">
-              <span>BUSINESS CLASS</span> <span>❤️</span>
-            </div>
+            <div class="hero-badge" data-i18n="hero.badge"></div>
           </div>
           <div class="hero-content">
-            <div class="hero-line">
-              Thiệp mời lên chuyến bay tình yêu
-            </div>
-            <div class="hero-line" style="letter-spacing: 0.16em; font-size: 0.72rem;">
-              Boarding Pass for Our Journey of Love
-            </div>
+            <div class="hero-line" data-i18n="hero.line1"></div>
+            <div class="hero-line" data-i18n="hero.line2"></div>
 
             <div class="hero-names">
               Minh Nghĩa &amp; Bảo Hân
             </div>
 
             <div class="hero-date-block">
-              <span>Ngày cưới: 29/12/2025</span>
-              <span>Wedding Date: December 29, 2025</span>
+              <span data-i18n="hero.date1"></span>
+              <span data-i18n="hero.date2"></span>
             </div>
 
-            <p class="hero-tagline">
-              Chúng mình trân trọng mời bạn cùng lên chuyến bay hạng thương gia, đồng hành trong ngày đặc biệt này.
-            </p>
-            <p class="hero-tagline">
-              We warmly invite you to board our business-class flight and celebrate this special day with us.
-            </p>
+            <p class="hero-tagline" data-i18n="hero.tagline1"></p>
+            <p class="hero-tagline" data-i18n="hero.tagline2"></p>
 
-            <p class="hero-note">
-              Vui lòng cuộn xuống để xem chi tiết "chuyến bay" tình yêu, RSVP và địa điểm tổ chức.
-              <br>
-              Please scroll down to see the love "flight" details, RSVP, and venue information.
-            </p>
+            <p class="hero-note" data-i18n="hero.note"></p>
 
             <div class="hero-cta-row">
-              <a href="#rsvp" class="btn-primary">
-                <span>RSVP / Xác nhận</span>
-                <span>💌</span>
+              <a href="#boarding-pass" class="btn-primary">
+                <span data-i18n="hero.btnPrimary"></span>
               </a>
-              <a href="#boarding-pass" class="btn-secondary-link">
-                <span>Xem vé mời / View boarding pass</span>
+              <a href="#details" class="btn-secondary-link">
+                <span data-i18n="hero.btnSecondary"></span>
                 <span>↓</span>
               </a>
             </div>
@@ -1249,13 +1044,9 @@
     <section id="boarding-pass" class="reveal-on-scroll">
       <div class="container">
         <div class="section-title">
-          <h2>Vé mời lên chuyến bay · Boarding Pass</h2>
-          <h3>Chuyến bay tình yêu hạng thương gia · Business-Class Love Flight</h3>
-          <p>
-            Đây là tấm vé mời đặc biệt dành riêng cho bạn – hành khách danh dự trên hành trình mới của Nhân &amp; Linh.
-            <br>
-            This is a special boarding pass just for you – an honored passenger on the new journey of Nhan &amp; Linh.
-          </p>
+          <h2 data-i18n="boarding.title1"></h2>
+          <h3 data-i18n="boarding.title2"></h3>
+          <p data-i18n="boarding.desc"></p>
         </div>
 
         <div class="boarding-wrapper">
@@ -1265,136 +1056,104 @@
                 <div class="ticket-logo">
                   <span>LOVE AIRLINES</span>
                 </div>
-                <span class="ticket-tag">Wedding · Business Class</span>
+                <span class="ticket-tag" data-i18n="boarding.tag"></span>
               </div>
 
               <div class="ticket-names">
                 Minh Nghĩa &amp; Bảo Hân
               </div>
-              <div class="ticket-sub">
-                Thiệp mời lên chuyến bay tình yêu · Boarding Pass for Our Journey of Love
-              </div>
+              <div class="ticket-sub" data-i18n="boarding.subtitle"></div>
 
               <div class="ticket-rows">
                 <div>
-                  <div class="ticket-field-label">Hành khách · Passenger</div>
-                  <div class="ticket-field-value">
-                    Kính mời / Guest
-                  </div>
+                  <div class="ticket-field-label" data-i18n="boarding.passengerLabel"></div>
+                  <div class="ticket-field-value" data-i18n="boarding.passengerValue"></div>
                 </div>
                 <div>
-                  <div class="ticket-field-label">Đi từ · From</div>
-                  <div class="ticket-field-value">
-                    Nhà của bạn
-                  </div>
+                  <div class="ticket-field-label" data-i18n="boarding.fromLabel"></div>
+                  <div class="ticket-field-value" data-i18n="boarding.fromValue"></div>
                 </div>
                 <div>
-                  <div class="ticket-field-label">Đến · To</div>
-                  <div class="ticket-field-value">
-                    Hà Nội
-                  </div>
+                  <div class="ticket-field-label" data-i18n="boarding.toLabel"></div>
+                  <div class="ticket-field-value" data-i18n="boarding.toValue"></div>
                 </div>
                 <div>
-                  <div class="ticket-field-label">Chuyến bay · Flight</div>
-                  <div class="ticket-field-value">
-                    LOVE 29122025
-                  </div>
+                  <div class="ticket-field-label" data-i18n="boarding.flightLabel"></div>
+                  <div class="ticket-field-value" data-i18n="boarding.flightValue"></div>
                 </div>
                 <div>
-                  <div class="ticket-field-label">Cổng · Gate</div>
-                  <div class="ticket-field-value">
-                    Almaz Convention Center
-                  </div>
+                  <div class="ticket-field-label" data-i18n="boarding.gateLabel"></div>
+                  <div class="ticket-field-value" data-i18n="boarding.gateValue"></div>
                 </div>
                 <div>
-                  <div class="ticket-field-label">Hạng ghế · Seat</div>
-                  <div class="ticket-field-value">
-                    Business Class
-                  </div>
+                  <div class="ticket-field-label" data-i18n="boarding.seatLabel"></div>
+                  <div class="ticket-field-value" data-i18n="boarding.seatValue"></div>
                 </div>
               </div>
 
               <div class="airport-row">
                 <div>
                   <div class="airport-code">URH</div>
-                  <div class="airport-text">Nhà của bạn · Your house</div>
+                  <div class="airport-text" data-i18n="boarding.airportFromText"></div>
                 </div>
                 <div class="airport-arrow"></div>
                 <div style="text-align: right;">
                   <div class="airport-code">HNI</div>
-                  <div class="airport-text">Hà Nội · Ha Noi</div>
+                  <div class="airport-text" data-i18n="boarding.airportToText"></div>
                 </div>
               </div>
 
               <div class="ticket-rows" style="margin-top: 0.6rem;">
                 <div>
-                  <div class="ticket-field-label">Giờ boarding · Boarding Time</div>
-                  <div class="ticket-field-value">
-                    18:30 (6:30 PM)
-                  </div>
+                  <div class="ticket-field-label" data-i18n="boarding.boardingTimeLabel"></div>
+                  <div class="ticket-field-value" data-i18n="boarding.boardingTimeValue"></div>
                 </div>
                 <div>
-                  <div class="ticket-field-label">Ngày · Date</div>
-                  <div class="ticket-field-value">
-                    29/12/2025
-                  </div>
+                  <div class="ticket-field-label" data-i18n="boarding.dateLabel"></div>
+                  <div class="ticket-field-value" data-i18n="boarding.dateValue"></div>
                 </div>
                 <div>
-                  <div class="ticket-field-label">Ngày · Date (EN)</div>
-                  <div class="ticket-field-value">
-                    December 29, 2025
-                  </div>
+                  <div class="ticket-field-label" data-i18n="boarding.dateEnLabel"></div>
+                  <div class="ticket-field-value" data-i18n="boarding.dateEnValue"></div>
                 </div>
               </div>
 
-              <p class="ticket-footer-note">
-                Vui lòng đến sớm để làm thủ tục "check-in" yêu thương.
-                <br>
-                Please arrive a little early for a smooth and loving "check-in" process.
-              </p>
+              <p class="ticket-footer-note" data-i18n="boarding.footerNote"></p>
             </div>
 
             <aside class="ticket-stub" aria-label="Boarding pass stub">
               <div class="ticket-stub-top">
                 <div class="stub-flight-row">
                   <div>
-                    <div class="stub-label">Chuyến bay · Flight</div>
-                    <div class="stub-value">LOVE 29122025</div>
+                    <div class="stub-label" data-i18n="stub.flightLabel"></div>
+                    <div class="stub-value" data-i18n="stub.flightValue"></div>
                   </div>
                   <div style="text-align:right;">
-                    <div class="stub-label">Ngày · Date</div>
-                    <div class="stub-value">29 / 12 / 2025</div>
+                    <div class="stub-label" data-i18n="stub.dateLabel"></div>
+                    <div class="stub-value" data-i18n="stub.dateValue"></div>
                   </div>
                 </div>
 
                 <div class="stub-flight-row">
                   <div>
-                    <div class="stub-label">Giờ boarding · Boarding</div>
-                    <div class="stub-value">18:30</div>
+                    <div class="stub-label" data-i18n="stub.boardingLabel"></div>
+                    <div class="stub-value" data-i18n="stub.boardingValue"></div>
                   </div>
                   <div style="text-align:right;">
-                    <div class="stub-label">Cổng · Gate</div>
-                    <div class="stub-value">Almaz Convention Center</div>
+                    <div class="stub-label" data-i18n="stub.gateLabel"></div>
+                    <div class="stub-value" data-i18n="stub.gateValue"></div>
                   </div>
                 </div>
 
                 <div class="stub-qr">
                   <div class="stub-qr-box">
-                    QR
+                    <img src="QR.jfif" alt="QR bản đồ tiệc cưới">
                   </div>
-                  <div>
-                    Quét để xem bản đồ &amp; RSVP
-                    <br>
-                    Scan for map &amp; RSVP
-                  </div>
+                  <div data-i18n="stub.qrText"></div>
                 </div>
               </div>
 
-              <div class="stub-footer">
-                Vé mời không cần in, chỉ cần mang theo nụ cười và trái tim ấm áp.
-                <br>
-                No printed ticket required, just bring your smile and warm heart.
-              </div>
+              <div class="stub-footer" data-i18n="stub.footer"></div>
             </aside>
           </article>
         </div>
@@ -1405,88 +1164,60 @@
     <section id="details" class="reveal-on-scroll">
       <div class="container">
         <div class="section-title">
-          <h2>Thông tin sự kiện · Event Details</h2>
-          <h3>Bảng thông tin chuyến bay · Flight Info Board</h3>
-          <p>
-            Hãy kiểm tra "bảng điện tử" dưới đây để không bỏ lỡ bất kỳ khoảnh khắc quan trọng nào trong ngày cưới.
-            <br>
-            Please check the "flight board" below so you won't miss any important moment of our wedding day.
-          </p>
+          <h2 data-i18n="details.title1"></h2>
+          <h3 data-i18n="details.title2"></h3>
+          <p data-i18n="details.desc"></p>
         </div>
 
         <div class="flight-board">
           <div class="flight-board-header">
-            <span>LOVE AIRLINES · WEDDING FLIGHT</span>
+            <span data-i18n="details.boardHeader"></span>
             <span>✈️</span>
           </div>
           <div class="flight-board-body">
             <table class="flight-board-table" aria-label="Event details table">
               <thead>
                 <tr>
-                  <th>Sự kiện / Event</th>
-                  <th>Thời gian / Time</th>
-                  <th>Địa điểm / Location</th>
+                  <th data-i18n="details.thEvent"></th>
+                  <th data-i18n="details.thTime"></th>
+                  <th data-i18n="details.thLocation"></th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>
-                    <span class="flight-label">Đón khách</span>
-                    <span class="flight-label-en">Guest Arrival</span>
+                    <span class="flight-label" data-i18n="details.arrival.name"></span>
+                    <span class="flight-label-en" data-i18n="details.arrival.sub"></span>
                   </td>
                   <td>
-                    <div class="flight-meta">
-                      16:30 · Chiều
-                      <br>
-                      4:30 PM
-                    </div>
+                    <div class="flight-meta" data-i18n="details.arrival.time"></div>
                   </td>
                   <td>
-                    <div class="flight-meta">
-                      Sảnh chính Almaz Convention Center
-                      <br>
-                      Main lobby · Almaz Convention Center
-                    </div>
+                    <div class="flight-meta" data-i18n="details.arrival.location"></div>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <span class="flight-label">Lễ cưới</span>
-                    <span class="flight-label-en">Wedding Ceremony</span>
+                    <span class="flight-label" data-i18n="details.ceremony.name"></span>
+                    <span class="flight-label-en" data-i18n="details.ceremony.sub"></span>
                   </td>
                   <td>
-                    <div class="flight-meta">
-                      17:30 · Chiều
-                      <br>
-                      5:30 PM
-                    </div>
+                    <div class="flight-meta" data-i18n="details.ceremony.time"></div>
                   </td>
                   <td>
-                    <div class="flight-meta">
-                      Phòng tiệc Queen
-                      <br>
-                      Queen Room
-                    </div>
+                    <div class="flight-meta" data-i18n="details.ceremony.location"></div>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <span class="flight-label">Tiệc cưới</span>
-                    <span class="flight-label-en">Wedding Reception</span>
+                    <span class="flight-label" data-i18n="details.reception.name"></span>
+                    <span class="flight-label-en" data-i18n="details.reception.sub"></span>
                   </td>
                   <td>
-                    <div class="flight-meta">
-                      18:30 – 21:30
-                      <br>
-                      6:30 PM – 9:30 PM
-                    </div>
+                    <div class="flight-meta" data-i18n="details.reception.time"></div>
                   </td>
                   <td>
-                    <div class="flight-meta">
-                      Almaz Convention Center, Long Biên, Hà Nội
-                      <br>
-                      Almaz Convention Center, Long Bien, Ha Noi
-                    </div>
+                    <div class="flight-meta" data-i18n="details.reception.location"></div>
                   </td>
                 </tr>
               </tbody>
@@ -1496,147 +1227,46 @@
       </div>
     </section>
 
-    <!-- RSVP SECTION ------------------------------------------>
-    <section id="rsvp" class="reveal-on-scroll">
-      <div class="container">
-        <div class="section-title">
-          <h2>Xác nhận tham dự · RSVP</h2>
-          <h3>Mời bạn "check-in" cho chuyến bay tình yêu</h3>
-          <p>
-            Sự hiện diện của bạn là món quà quý giá nhất đối với chúng mình. Hãy cho chúng mình biết liệu bạn có thể tham dự được không nhé.
-            <br>
-            Your presence is the greatest gift for us. Please let us know if you will be able to join our special day.
-          </p>
-        </div>
-
-        <div class="rsvp-card">
-          <p>
-            Vui lòng điền thông tin bên dưới để xác nhận "lên chuyến bay". Chúng mình sẽ cố gắng sắp xếp mọi thứ thật chu đáo để bạn cảm thấy thoải mái và ấm áp nhất.
-            <br>
-            Please fill in the details below to "confirm boarding". We will do our best to make everything warm, cozy, and comfortable for you.
-          </p>
-
-          <form id="rsvp-form" class="rsvp-form">
-            <div class="form-field">
-              <label for="fullName">Họ và tên</label>
-              <span class="form-label-en">Full name</span>
-              <input type="text" id="fullName" name="fullName" placeholder="Nhập họ tên của bạn / Enter your full name" required>
-            </div>
-
-            <div class="form-field">
-              <label for="guestCount">Số lượng khách</label>
-              <span class="form-label-en">Number of guests (including you)</span>
-              <input type="number" id="guestCount" name="guestCount" min="1" max="10" value="1" required>
-            </div>
-
-            <div class="form-field">
-              <label for="attendance">Bạn có thể tham dự không?</label>
-              <span class="form-label-en">Will you attend?</span>
-              <select id="attendance" name="attendance" required>
-                <option value="">-- Vui lòng chọn / Please choose --</option>
-                <option value="yes">Có, mình sẽ lên chuyến bay · Yes, I will join</option>
-                <option value="no">Rất tiếc, mình không thể tham dự · Sorry, I cannot attend</option>
-              </select>
-            </div>
-
-            <div class="form-field">
-              <label for="message">Lời nhắn gửi đến cô dâu chú rể</label>
-              <span class="form-label-en">Message for the couple</span>
-              <textarea id="message" name="message" placeholder="Bạn muốn nhắn điều gì dễ thương cho chúng mình không? / Would you like to leave us a sweet note?"></textarea>
-            </div>
-
-            <div class="rsvp-actions">
-              <button type="submit" class="btn-primary">
-                <span>Xác nhận lên chuyến bay</span>
-                <span>/ Confirm boarding ✈️</span>
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-
     <!-- COUNTDOWN SECTION ------------------------------------->
     <section id="countdown" class="reveal-on-scroll">
       <div class="container">
         <div class="section-title">
-          <h2>Đếm ngược đến ngày cưới · Countdown to Our Day</h2>
-          <h3>Chuyến bay đang chuẩn bị cất cánh</h3>
-          <p>
-            Mỗi ngày trôi qua, chúng mình lại gần hơn một bước đến khoảnh khắc được gọi nhau là "vợ chồng".
-            <br>
-            With every passing day, we get one step closer to the moment we call each other "husband and wife".
-          </p>
+          <h2 data-i18n="count.title1"></h2>
+          <h3 data-i18n="count.title2"></h3>
+          <p data-i18n="count.desc"></p>
         </div>
 
         <div class="countdown-wrapper">
           <div class="countdown-grid" aria-label="Wedding countdown">
             <div class="count-box">
               <div id="count-days" class="count-value">0</div>
-              <div class="count-label">
-                Ngày
-                <span class="en">Days</span>
-              </div>
+              <div class="count-label" data-i18n="count.daysLabel"></div>
             </div>
             <div class="count-box">
               <div id="count-hours" class="count-value">0</div>
-              <div class="count-label">
-                Giờ
-                <span class="en">Hours</span>
-              </div>
+              <div class="count-label" data-i18n="count.hoursLabel"></div>
             </div>
             <div class="count-box">
               <div id="count-minutes" class="count-value">0</div>
-              <div class="count-label">
-                Phút
-                <span class="en">Minutes</span>
-              </div>
+              <div class="count-label" data-i18n="count.minutesLabel"></div>
             </div>
             <div class="count-box">
               <div id="count-seconds" class="count-value">0</div>
-              <div class="count-label">
-                Giây
-                <span class="en">Seconds</span>
-              </div>
+              <div class="count-label" data-i18n="count.secondsLabel"></div>
             </div>
           </div>
 
-          <div id="countdown-message" class="countdown-message">
-            Chuyến bay tình yêu đang đếm ngược, chúng mình rất mong được gặp bạn!
-            <br>
-            Our love flight is counting down – we can't wait to see you there!
-          </div>
+          <div id="countdown-message" class="countdown-message" data-i18n="count.message"></div>
 
-          <p class="countdown-note">
-            Cảm ơn bạn vì đã là một phần trong hành trình của chúng mình. Sự hiện diện của bạn sẽ làm ngày cưới trở nên trọn vẹn hơn.
-            <br>
-            Thank you for being part of our story. Your presence will make our wedding day truly complete.
-          </p>
+          <p class="countdown-note" data-i18n="count.note"></p>
 
-          <p class="love-quote">
-            "Tình yêu không phải là nhìn nhau, mà là cùng nhìn về một hướng."
-            <br>
-            "Love does not consist in gazing at each other, but in looking outward together in the same direction."
-          </p>
+          <p class="love-quote" data-i18n="count.quote"></p>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- RSVP CONFIRMATION MODAL --------------------------------->
-  <div class="modal-overlay" id="rsvp-modal" role="dialog" aria-modal="true" aria-labelledby="rsvp-modal-title">
-    <div class="modal-content">
-      <button class="modal-close" data-close-modal="rsvp-modal" aria-label="Close message">×</button>
-      <h4 id="rsvp-modal-title">Cảm ơn bạn! · Thank you!</h4>
-      <p>
-        Cảm ơn bạn! Thông tin xác nhận đã được ghi nhận 💌
-        <br>
-        Thank you! Your boarding confirmation has been received 💌
-      </p>
-    </div>
-  </div>
-
-  <!-- GALLERY LIGHTBOX MODAL ---------------------------------->
+  <!-- LIGHTBOX MODAL (placeholder) -->
   <div class="modal-overlay lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
     <div class="modal-content">
       <button class="modal-close" data-close-modal="lightbox-modal" aria-label="Close image">×</button>
@@ -1650,16 +1280,369 @@
   </div>
 
   <footer>
-    Với tất cả yêu thương từ
-    <span class="names">Minh Nghĩa &amp; Bảo Hân</span>
-    gửi đến gia đình và bạn bè.
+    <span data-i18n="footer.textTop"></span>
     <br>
-    With all our love, from Minh Nghia &amp; Bao Han to our dear family and friends.
+    <span data-i18n="footer.textBottom"></span>
   </footer>
 
   <!-- SCRIPTS ------------------------------------------------->
   <script>
-    // NAVBAR & MOBILE MENU
+    /* ========================
+       TRANSLATIONS
+    ======================== */
+    const translations = {
+      vi: {
+        // NAV
+        'nav.boarding': 'Vé mời',
+        'nav.details': 'Thông tin',
+        'nav.countdown': 'Đếm ngược',
+
+        // HERO
+        'hero.badge': 'HẠNG THƯƠNG GIA · ❤️',
+        'hero.line1': 'Thiệp mời lên chuyến bay tình yêu',
+        'hero.line2': 'Tấm vé cho hành trình hạnh phúc của chúng mình',
+        'hero.date1': 'Ngày cưới: 29/12/2025',
+        'hero.date2': 'Thứ Hai, ngày 29 tháng 12 năm 2025',
+        'hero.tagline1':
+          'Chúng mình trân trọng mời anh chị và các bạn cùng lên chuyến bay hạng thương gia và đồng hành trong ngày đặc biệt này.',
+        'hero.tagline2':
+          'Sự hiện diện của anh chị và các bạn sẽ làm chuyến bay tình yêu này trở nên ấm áp và trọn vẹn hơn.',
+        'hero.note':
+          'Kéo xuống để xem vé mời, lịch trình chi tiết và cùng đếm ngược đến khoảnh khắc chúng mình chính thức nên duyên vợ chồng.',
+        'hero.btnPrimary': 'Xem vé mời ✈️',
+        'hero.btnSecondary': 'Xem lịch trình',
+
+        // BOARDING SECTION
+        'boarding.title1': 'Vé mời lên chuyến bay',
+        'boarding.title2': 'Chuyến bay tình yêu hạng thương gia',
+        'boarding.desc':
+          'Đây là tấm vé mời đặc biệt dành riêng cho anh chị và các bạn – hành khách danh dự trên hành trình mới của Nghĩa &amp; Hân.',
+        'boarding.tag': 'ĐÁM CƯỚI · HẠNG THƯƠNG GIA',
+        'boarding.subtitle':
+          'Thiệp mời lên chuyến bay tình yêu của chúng mình – nơi anh chị và các bạn luôn có một chỗ ngồi thật ấm áp trong trái tim.',
+        'boarding.passengerLabel': 'Hành khách',
+        'boarding.passengerValue': 'Kính mời: Quý khách',
+        'boarding.fromLabel': 'Đi từ',
+        'boarding.fromValue': 'Nhà',
+        'boarding.toLabel': 'Đến',
+        'boarding.toValue': 'Hà Nội',
+        'boarding.flightLabel': 'Chuyến bay',
+        'boarding.flightValue': 'LOVE 29122025',
+        'boarding.gateLabel': 'Cổng',
+        'boarding.gateValue': 'Almaz Convention Center',
+        'boarding.seatLabel': 'Hạng ghế',
+        'boarding.seatValue': 'Business Class',
+        'boarding.airportFromText': 'Nhà',
+        'boarding.airportToText': 'Hà Nội',
+        'boarding.boardingTimeLabel': 'Giờ đón khách',
+        'boarding.boardingTimeValue': '17:30',
+        'boarding.dateLabel': 'Ngày',
+        'boarding.dateValue': '29/12/2025',
+        'boarding.dateEnLabel': 'Ngày (viết đầy đủ)',
+        'boarding.dateEnValue': 'Ngày 29 tháng 12 năm 2025',
+        'boarding.footerNote':
+          'Vui lòng đến sớm một chút để làm thủ tục “check-in” yêu thương thật nhẹ nhàng và thoải mái.',
+
+        // STUB
+        'stub.flightLabel': 'Chuyến bay',
+        'stub.flightValue': 'LOVE 29122025',
+        'stub.dateLabel': 'Ngày',
+        'stub.dateValue': '29 / 12 / 2025',
+        'stub.boardingLabel': 'Giờ đón khách',
+        'stub.boardingValue': '17:30',
+        'stub.gateLabel': 'Cổng',
+        'stub.gateValue': 'Almaz Convention Center',
+        'stub.qrText':
+          'Quét để xem bản đồ, lộ trình di chuyển và thông tin chi tiết về buổi tiệc.',
+        'stub.footer':
+          'Vé mời không cần in. Chỉ cần mang theo nụ cười, trái tim ấm áp và đến chia vui cùng chúng mình.',
+
+        // DETAILS
+        'details.title1': 'Thông tin sự kiện',
+        'details.title2': 'Bảng thông tin chuyến bay',
+        'details.desc':
+          'Hãy kiểm tra “bảng điện tử” dưới đây để không bỏ lỡ bất kỳ khoảnh khắc quan trọng nào trong ngày cưới của chúng mình.',
+        'details.boardHeader': 'LOVE AIRLINES · CHUYẾN BAY TÌNH YÊU',
+        'details.thEvent': 'Sự kiện',
+        'details.thTime': 'Thời gian',
+        'details.thLocation': 'Địa điểm',
+        'details.arrival.name': 'Đón khách',
+        'details.arrival.sub': '',
+        'details.arrival.time': '17:30 · Chiều',
+        'details.arrival.location':
+          'Sảnh chính Almaz Convention Center',
+        'details.ceremony.name': 'Lễ cưới',
+        'details.ceremony.sub': '',
+        'details.ceremony.time': '18:30 · Chiều',
+        'details.ceremony.location': 'Phòng tiệc Princess',
+        'details.reception.name': 'Tiệc cưới',
+        'details.reception.sub': '',
+        'details.reception.time': '18:30 – 21:30',
+        'details.reception.location':
+          'Almaz Convention Center, Long Biên, Hà Nội',
+
+        // COUNTDOWN
+        'count.title1': 'Đếm ngược đến ngày cưới',
+        'count.title2': 'Chuyến bay đang chuẩn bị cất cánh',
+        'count.desc':
+          'Mỗi ngày trôi qua, chúng mình lại gần hơn một bước đến khoảnh khắc được gọi nhau là “vợ chồng”.',
+        'count.daysLabel': 'Ngày<span class="en"></span>',
+        'count.hoursLabel': 'Giờ<span class="en"></span>',
+        'count.minutesLabel': 'Phút<span class="en"></span>',
+        'count.secondsLabel': 'Giây<span class="en"></span>',
+        'count.message':
+          'Chuyến bay tình yêu đang đếm ngược, chúng mình rất mong được gặp anh chị và các bạn!',
+        'count.messageToday':
+          'Hôm nay là ngày cưới của chúng mình! 💒',
+        'count.note':
+          'Cảm ơn anh chị và các bạn vì đã là một phần trong hành trình của chúng mình. Sự hiện diện của anh chị và các bạn sẽ làm ngày cưới trở nên trọn vẹn hơn.',
+        'count.quote':
+          '“Tình yêu không phải là nhìn nhau, mà là cùng nhìn về một hướng.”',
+
+        // FOOTER
+        'footer.textTop':
+          'Với tất cả yêu thương từ Minh Nghĩa &amp; Bảo Hân gửi đến gia đình và bạn bè.',
+        'footer.textBottom':
+          'Cảm ơn vì đã đồng hành và sẻ chia niềm vui cùng chúng mình.'
+      },
+
+      en: {
+        // NAV
+        'nav.boarding': 'Boarding Pass',
+        'nav.details': 'Event Details',
+        'nav.countdown': 'Countdown',
+
+        // HERO
+        'hero.badge': 'BUSINESS CLASS · ❤️',
+        'hero.line1': 'Wedding Boarding Pass',
+        'hero.line2': 'A ticket for the journey of our love',
+        'hero.date1': 'Wedding date: 29/12/2025',
+        'hero.date2': 'Monday, December 29, 2025',
+        'hero.tagline1':
+          'We warmly invite you to board our business-class love flight and celebrate this special day with us.',
+        'hero.tagline2':
+          'Your presence will make this journey of love warmer and more complete.',
+        'hero.note':
+          'Scroll down to see the boarding pass, the schedule for our wedding day, and count down with us to the big moment.',
+        'hero.btnPrimary': 'View boarding pass ✈️',
+        'hero.btnSecondary': 'View schedule',
+
+        // BOARDING
+        'boarding.title1': 'Boarding Pass',
+        'boarding.title2': 'Business-Class Love Flight',
+        'boarding.desc':
+          'This is a special boarding pass just for you – an honored passenger on the new journey of Nghia &amp; Han.',
+        'boarding.tag': 'WEDDING · BUSINESS CLASS',
+        'boarding.subtitle':
+          'A boarding pass for our love flight – where there is always a warm seat reserved for you in our hearts.',
+        'boarding.passengerLabel': 'Passenger',
+        'boarding.passengerValue': 'Dear Guest',
+        'boarding.fromLabel': 'From',
+        'boarding.fromValue': 'Your home',
+        'boarding.toLabel': 'To',
+        'boarding.toValue': 'Ha Noi',
+        'boarding.flightLabel': 'Flight',
+        'boarding.flightValue': 'LOVE 29122025',
+        'boarding.gateLabel': 'Gate',
+        'boarding.gateValue': 'Almaz Convention Center',
+        'boarding.seatLabel': 'Seat',
+        'boarding.seatValue': 'Business Class',
+        'boarding.airportFromText': 'Your home',
+        'boarding.airportToText': 'Ha Noi',
+        'boarding.boardingTimeLabel': 'Boarding time',
+        'boarding.boardingTimeValue': '6:30 PM (18:30)',
+        'boarding.dateLabel': 'Date',
+        'boarding.dateValue': '29/12/2025',
+        'boarding.dateEnLabel': 'Full date',
+        'boarding.dateEnValue': 'December 29, 2025',
+        'boarding.footerNote':
+          'Please arrive a little early for a smooth and heart-warming “check-in”.',
+
+        // STUB
+        'stub.flightLabel': 'Flight',
+        'stub.flightValue': 'LOVE 29122025',
+        'stub.dateLabel': 'Date',
+        'stub.dateValue': '29 / 12 / 2025',
+        'stub.boardingLabel': 'Boarding',
+        'stub.boardingValue': '18:30',
+        'stub.gateLabel': 'Gate',
+        'stub.gateValue': 'Almaz Convention Center',
+        'stub.qrText':
+          'Scan to view the map, directions and more details about our wedding.',
+        'stub.footer':
+          'No printed ticket required. Just bring your smile, your warm heart and come celebrate with us.',
+
+        // DETAILS
+        'details.title1': 'Event Details',
+        'details.title2': 'Flight Information Board',
+        'details.desc':
+          'Please check the “flight board” below so you won’t miss any important moment of our wedding day.',
+        'details.boardHeader': 'LOVE AIRLINES · WEDDING FLIGHT',
+        'details.thEvent': 'Event',
+        'details.thTime': 'Time',
+        'details.thLocation': 'Location',
+        'details.arrival.name': 'Guest Arrival',
+        'details.arrival.sub': '',
+        'details.arrival.time': '5:30 PM',
+        'details.arrival.location':
+          'Main lobby – Almaz Convention Center',
+        'details.ceremony.name': 'Wedding Ceremony',
+        'details.ceremony.sub': '',
+        'details.ceremony.time': '6:30 PM',
+        'details.ceremony.location': 'Princess Room',
+        'details.reception.name': 'Wedding Reception',
+        'details.reception.sub': '',
+        'details.reception.time': '6:30 PM – 9:30 PM',
+        'details.reception.location':
+          'Almaz Convention Center, Long Bien, Ha Noi',
+
+        // COUNTDOWN
+        'count.title1': 'Countdown to Our Wedding Day',
+        'count.title2': 'Our flight is getting ready for takeoff',
+        'count.desc':
+          'With every passing day, we get one step closer to calling each other “husband and wife”.',
+        'count.daysLabel': 'Days<span class="en"></span>',
+        'count.hoursLabel': 'Hours<span class="en"></span>',
+        'count.minutesLabel': 'Minutes<span class="en"></span>',
+        'count.secondsLabel': 'Seconds<span class="en"></span>',
+        'count.message':
+          'Our love flight is counting down – we cannot wait to see you there!',
+        'count.messageToday':
+          'Today is our wedding day! 💒',
+        'count.note':
+          'Thank you for being part of our story. Your presence will make our wedding day truly complete.',
+        'count.quote':
+          '“Love does not consist in gazing at each other, but in looking outward together in the same direction.”',
+
+        // FOOTER
+        'footer.textTop':
+          'With all our love from Minh Nghia &amp; Bao Han to our dear family and friends.',
+        'footer.textBottom':
+          'Thank you for sharing this joy and this journey with us.'
+      },
+
+      ru: {
+        // NAV
+        'nav.boarding': 'Посадочный талон',
+        'nav.details': 'Информация о событии',
+        'nav.countdown': 'Обратный отсчёт',
+
+        // HERO
+        'hero.badge': 'БИЗНЕС-КЛАСС · ❤️',
+        'hero.line1': 'Свадебный посадочный талон',
+        'hero.line2': 'Билет на наше совместное путешествие любви',
+        'hero.date1': 'Дата свадьбы: 29.12.2025',
+        'hero.date2': 'Понедельник, 29 декабря 2025 года',
+        'hero.tagline1':
+          'Мы с тёплой радостью приглашаем вас на наш “рейс любви” бизнес-класса, чтобы вместе отпраздновать этот особенный день.',
+        'hero.tagline2':
+          'Ваше присутствие сделает это путешествие ещё теплее и счастливее.',
+        'hero.note':
+          'Прокрутите вниз, чтобы увидеть посадочный талон, расписание свадебного дня и вместе с нами вести обратный отсчёт.',
+        'hero.btnPrimary': 'Посмотреть талон ✈️',
+        'hero.btnSecondary': 'Посмотреть расписание',
+
+        // BOARDING
+        'boarding.title1': 'Посадочный талон',
+        'boarding.title2': 'Рейс любви бизнес-класса',
+        'boarding.desc':
+          'Этот особый посадочный талон подготовлен лично для вас — почётного пассажира на новом жизненном пути Нгиа и Хан.',
+        'boarding.tag': 'СВАДЬБА · БИЗНЕС-КЛАСС',
+        'boarding.subtitle':
+          'Посадочный талон на наш рейс любви — в нашем сердце для вас всегда есть тёплое место.',
+        'boarding.passengerLabel': 'Пассажир',
+        'boarding.passengerValue': 'Дорогой гость',
+        'boarding.fromLabel': 'Откуда',
+        'boarding.fromValue': 'Ваш дом',
+        'boarding.toLabel': 'Куда',
+        'boarding.toValue': 'Ханой',
+        'boarding.flightLabel': 'Рейс',
+        'boarding.flightValue': 'LOVE 29122025',
+        'boarding.gateLabel': 'Гейт',
+        'boarding.gateValue': 'Almaz Convention Center',
+        'boarding.seatLabel': 'Класс',
+        'boarding.seatValue': 'Бизнес-класс',
+        'boarding.airportFromText': 'Ваш дом',
+        'boarding.airportToText': 'Ханой',
+        'boarding.boardingTimeLabel': 'Время посадки',
+        'boarding.boardingTimeValue': '18:30 (6:30 PM)',
+        'boarding.dateLabel': 'Дата',
+        'boarding.dateValue': '29.12.2025',
+        'boarding.dateEnLabel': 'Полная дата',
+        'boarding.dateEnValue': '29 декабря 2025 года',
+        'boarding.footerNote':
+          'Пожалуйста, приходите чуть раньше, чтобы регистрация и “чекин” прошли спокойно и в тёплой атмосфере.',
+
+        // STUB
+        'stub.flightLabel': 'Рейс',
+        'stub.flightValue': 'LOVE 29122025',
+        'stub.dateLabel': 'Дата',
+        'stub.dateValue': '29 / 12 / 2025',
+        'stub.boardingLabel': 'Посадка',
+        'stub.boardingValue': '18:30',
+        'stub.gateLabel': 'Гейт',
+        'stub.gateValue': 'Almaz Convention Center',
+        'stub.qrText':
+          'Сканируйте, чтобы открыть карту, маршрут и подробную информацию о свадьбе.',
+        'stub.footer':
+          'Печатный билет не нужен. Просто возьмите с собой улыбку и тёплое сердце и приходите праздновать вместе с нами.',
+
+        // DETAILS
+        'details.title1': 'Информация о событии',
+        'details.title2': 'Табло рейса',
+        'details.desc':
+          'Посмотрите табло ниже, чтобы не пропустить ни один важный момент нашего свадебного дня.',
+        'details.boardHeader': 'LOVE AIRLINES · СВАДЕБНЫЙ РЕЙС',
+        'details.thEvent': 'Событие',
+        'details.thTime': 'Время',
+        'details.thLocation': 'Место',
+        'details.arrival.name': 'Встреча гостей',
+        'details.arrival.sub': '',
+        'details.arrival.time': '17:30',
+        'details.arrival.location':
+          'Главное фойе – Almaz Convention Center',
+        'details.ceremony.name': 'Церемония',
+        'details.ceremony.sub': '',
+        'details.ceremony.time': '18:30',
+        'details.ceremony.location': 'Зал Princess',
+        'details.reception.name': 'Свадебный банкет',
+        'details.reception.sub': '',
+        'details.reception.time': '18:30 – 21:30',
+        'details.reception.location':
+          'Almaz Convention Center, Лонг Биен, Ханой',
+
+        // COUNTDOWN
+        'count.title1': 'Обратный отсчёт до свадьбы',
+        'count.title2': 'Наш рейс готовится к взлёту',
+        'count.desc':
+          'С каждым днём мы становимся ещё на один шаг ближе к моменту, когда сможем назвать друг друга мужем и женой.',
+        'count.daysLabel': 'Дни<span class="en"></span>',
+        'count.hoursLabel': 'Часы<span class="en"></span>',
+        'count.minutesLabel': 'Минуты<span class="en"></span>',
+        'count.secondsLabel': 'Секунды<span class="en"></span>',
+        'count.message':
+          'Наш рейс любви ведёт обратный отсчёт — мы с нетерпением ждём встречи с вами!',
+        'count.messageToday':
+          'Сегодня наш свадебный день! 💒',
+        'count.note':
+          'Спасибо, что являетесь частью нашей истории. Ваше присутствие сделает этот день по-настоящему особенным.',
+        'count.quote':
+          '«Любовь — это не когда двое смотрят друг на друга, а когда они вместе смотрят в одном направлении».',
+
+        // FOOTER
+        'footer.textTop':
+          'С любовью, Минь Нгиа и Бао Хан, для нашей дорогой семьи и друзей.',
+        'footer.textBottom':
+          'Спасибо, что разделяете с нами эту радость и этот путь.'
+      }
+    };
+
+    const STORAGE_KEY = 'weddingPreferredLang';
+    let currentLang = 'vi';
+
+    /* ========================
+       NAVBAR & MOBILE MENU
+    ======================== */
     const header = document.getElementById('site-header');
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const mobileNav = document.getElementById('mobile-nav');
@@ -1686,7 +1669,9 @@
       });
     });
 
-    // HERO PARALLAX
+    /* ========================
+       HERO PARALLAX
+    ======================== */
     const heroVisual = document.getElementById('hero-visual');
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
@@ -1695,26 +1680,65 @@
       }
     });
 
-    // RSVP FORM
-    const rsvpForm = document.getElementById('rsvp-form');
-    const rsvpModal = document.getElementById('rsvp-modal');
+    /* ========================
+       LANGUAGE SWITCH
+    ======================== */
+    const langButtons = document.querySelectorAll('.lang-btn');
 
-    if (rsvpForm) {
-      rsvpForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        openModal('rsvp-modal');
-        setTimeout(() => {
-          rsvpForm.reset();
-        }, 300);
+    function applyLanguage(lang) {
+      const dict = translations[lang];
+      if (!dict) return;
+
+      currentLang = lang;
+      document.documentElement.setAttribute('lang', lang);
+
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const text = dict[key];
+        if (typeof text !== 'undefined') {
+          el.innerHTML = text;
+        }
       });
+
+      // update nút active
+      langButtons.forEach(btn => {
+        if (btn.getAttribute('data-lang') === lang) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      // lưu lại lựa chọn
+      localStorage.setItem(STORAGE_KEY, lang);
     }
 
-    // MODALS
-    function openModal(id) {
-      const modal = document.getElementById(id);
-      if (modal) modal.classList.add('open');
+    function getInitialLang() {
+      const params = new URLSearchParams(window.location.search);
+      const paramLang = params.get('lang');
+      if (paramLang && translations[paramLang]) return paramLang;
+
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored && translations[stored]) return stored;
+
+      return 'vi';
     }
 
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        applyLanguage(lang);
+      });
+    });
+
+    // set language ban đầu (từ ?lang= hoặc localStorage)
+    const initialLang = getInitialLang();
+    applyLanguage(initialLang);
+
+    /* ========================
+       MODALS (lightbox placeholder)
+    ======================== */
     function closeModal(id) {
       const modal = document.getElementById(id);
       if (modal) modal.classList.remove('open');
@@ -1738,65 +1762,15 @@
       });
     });
 
-    // GALLERY LIGHTBOX
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    const lightboxModal = document.getElementById('lightbox-modal');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxCaption = document.getElementById('lightbox-caption');
-
-    galleryItems.forEach(item => {
-      item.addEventListener('click', () => {
-        const img = item.querySelector('img');
-        const src = img.getAttribute('src');
-        const alt = img.getAttribute('alt') || 'Wedding moment';
-        const captionVi = item.getAttribute('data-caption-vi') || '';
-        const captionEn = item.getAttribute('data-caption-en') || '';
-
-        lightboxImg.src = src;
-        lightboxImg.alt = alt;
-        lightboxCaption.innerHTML = `
-          ${captionVi ? captionVi : ''}<br>
-          <span style="opacity:0.8;">${captionEn ? captionEn : ''}</span>
-        `;
-        openModal('lightbox-modal');
-      });
-    });
-
-    // ESC closes modals
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        if (lightboxModal && lightboxModal.classList.contains('open')) {
-          lightboxModal.classList.remove('open');
-        }
-        if (rsvpModal && rsvpModal.classList.contains('open')) {
-          rsvpModal.classList.remove('open');
-        }
+        document.querySelectorAll('.modal-overlay.open').forEach(m => m.classList.remove('open'));
       }
     });
 
-    // MUSIC PLAYER
-    const musicToggle = document.getElementById('music-toggle');
-    const bgMusic = document.getElementById('bg-music');
-
-    if (musicToggle && bgMusic) {
-      musicToggle.addEventListener('click', async () => {
-        try {
-          if (bgMusic.paused) {
-            await bgMusic.play();
-            musicToggle.textContent = '⏸';
-            musicToggle.setAttribute('aria-label', 'Pause background music');
-          } else {
-            bgMusic.pause();
-            musicToggle.textContent = '▶';
-            musicToggle.setAttribute('aria-label', 'Play background music');
-          }
-        } catch (err) {
-          console.error('Cannot play audio automatically:', err);
-        }
-      });
-    }
-
-    // COUNTDOWN
+    /* ========================
+       COUNTDOWN
+    ======================== */
     const weddingDate = new Date('2025-12-29T17:00:00');
     const daysEl = document.getElementById('count-days');
     const hoursEl = document.getElementById('count-hours');
@@ -1813,10 +1787,9 @@
         hoursEl.textContent = 0;
         minutesEl.textContent = 0;
         secondsEl.textContent = 0;
-        countdownMessageEl.innerHTML = `
-          Hôm nay là ngày cưới của chúng mình! 💒<br>
-          Today is our wedding day! 💒
-        `;
+
+        const dict = translations[currentLang] || translations['vi'];
+        countdownMessageEl.innerHTML = dict['count.messageToday'] || '';
         return;
       }
 
@@ -1835,7 +1808,9 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // SCROLL REVEAL
+    /* ========================
+       SCROLL REVEAL
+    ======================== */
     const revealElements = document.querySelectorAll('.reveal-on-scroll');
 
     if ('IntersectionObserver' in window) {
