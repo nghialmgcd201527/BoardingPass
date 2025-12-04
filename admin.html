@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding Admin – Tạo link khách mời</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --pink-main: #f8c9da;
+      --pink-soft: #ffe6f0;
+      --cream: #fff7f0;
+      --rose-gold: #c7927f;
+      --dark-text: #3c2f2f;
+      --muted-text: #7b6b6b;
+      --card-bg: #ffffff;
+      --shadow-soft: 0 22px 55px rgba(0, 0, 0, 0.18);
+      --radius-large: 24px;
+      --transition-fast: 0.25s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, #ffeef8 0%, transparent 50%),
+        radial-gradient(circle at bottom right, #ffe5f0 0%, transparent 55%),
+        linear-gradient(135deg, var(--pink-soft), var(--cream));
+      color: var(--dark-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      overflow-x: hidden;
+    }
+
+    .admin-wrapper {
+      width: 100%;
+      max-width: 980px;
+      position: relative;
+    }
+
+    .admin-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      padding: 1.6rem 1.6rem 1.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .admin-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at -10% 0%, rgba(255,255,255,0.9) 0%, transparent 60%),
+        radial-gradient(circle at 110% 100%, rgba(248,201,218,0.7) 0%, transparent 60%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .admin-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .admin-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 1.4rem;
+      align-items: center;
+    }
+
+    .admin-title {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .admin-title h1 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .admin-title span.sub {
+      font-size: 0.86rem;
+      color: var(--muted-text);
+    }
+
+    .admin-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted-text);
+    }
+
+    .admin-logo span.icon {
+      font-size: 1.2rem;
+    }
+
+    .admin-grid {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    @media (min-width: 780px) {
+      .admin-card {
+        padding: 1.8rem 1.9rem 1.7rem;
+      }
+      .admin-grid {
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.3fr);
+        gap: 1.6rem;
+      }
+    }
+
+    .panel {
+      background: rgba(255, 255, 255, 0.88);
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      padding: 1rem 1rem 0.9rem;
+    }
+
+    .panel-title {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--rose-gold);
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .panel-title span.icon {
+      font-size: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 0.75rem;
+    }
+
+    .form-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 0.82rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .form-label span.main {
+      font-weight: 500;
+    }
+
+    .form-label span.helper {
+      font-size: 0.74rem;
+      color: var(--muted-text);
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      border-radius: 999px;
+      border: 1px solid rgba(199,146,127,0.4);
+      padding: 0.52rem 0.75rem;
+      font-size: 0.86rem;
+      outline: none;
+      background: rgba(255,255,255,0.95);
+      transition: border 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input[type="text"]:focus,
+    select:focus {
+      border-color: var(--rose-gold);
+      box-shadow: 0 0 0 1px rgba(199,146,127,0.35);
+    }
+
+    .inline-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.6rem;
+    }
+
+    .lang-row {
+      margin-top: 0.35rem;
+    }
+
+    .lang-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.3rem;
+    }
+
+    .lang-chip {
+      border-radius: 999px;
+      border: 1px solid rgba(199,146,127,0.4);
+      padding: 0.2rem 0.55rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.9);
+      color: var(--muted-text);
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .lang-chip.active {
+      background: linear-gradient(135deg, var(--rose-gold), var(--pink-main));
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.16);
+      border-color: transparent;
+    }
+
+    .preview-block {
+      margin-top: 0.4rem;
+      border-radius: 14px;
+      border: 1px dashed rgba(199,146,127,0.4);
+      padding: 0.55rem 0.7rem;
+      font-size: 0.82rem;
+      background: rgba(255,250,252,0.9);
+      color: var(--muted-text);
+    }
+
+    .preview-label {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.2rem;
+      opacity: 0.85;
+    }
+
+    .preview-text strong {
+      color: var(--rose-gold);
+    }
+
+    .link-block {
+      margin-bottom: 0.8rem;
+    }
+
+    .link-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted-text);
+      margin-bottom: 0.2rem;
+    }
+
+    .link-row {
+      display: flex;
+      gap: 0.4rem;
+      align-items: stretch;
+    }
+
+    .link-input {
+      flex: 1;
+      font-size: 0.78rem;
+      border-radius: 999px;
+      border: 1px solid rgba(199,146,127,0.4);
+      padding: 0.45rem 0.7rem;
+      background: rgba(255,255,255,0.95);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .btn-copy {
+      border-radius: 999px;
+      border: none;
+      padding: 0.4rem 0.9rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--rose-gold), var(--pink-main));
+      color: #fff;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.28rem;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .btn-copy:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.22);
+    }
+
+    .btn-copy:active {
+      transform: translateY(1px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+    }
+
+    .small-note {
+      font-size: 0.75rem;
+      color: var(--muted-text);
+      margin-top: 0.3rem;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 14px;
+      right: 14px;
+      background: rgba(0,0,0,0.85);
+      color: #fff;
+      font-size: 0.8rem;
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      opacity: 0;
+      transform: translateY(8px);
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      z-index: 90;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 520px) {
+      .admin-card {
+        padding: 1.3rem 1.3rem 1.2rem;
+      }
+      .link-row {
+        flex-direction: column;
+      }
+      .btn-copy {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-wrapper">
+    <div class="admin-card">
+      <div class="admin-inner">
+        <div class="admin-header">
+          <div class="admin-title">
+            <h1>Wedding Admin</h1>
+            <span class="sub">Tạo link khách mời cho thiệp cưới Boarding Pass ✈️</span>
+          </div>
+          <div class="admin-logo">
+            <span class="icon">💌</span>
+            <span>Love Link Maker</span>
+          </div>
+        </div>
+
+        <div class="admin-grid">
+          <!-- PANEL INPUT -->
+          <div class="panel">
+            <div class="panel-title">
+              <span class="icon">👤</span>
+              <span>Thông tin khách mời</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                <span class="main">Tên khách</span>
+                <span class="helper">VD: Nguyen Van A</span>
+              </label>
+              <input type="text" id="guest-name-input" placeholder="Nhập tên khách..." />
+            </div>
+
+            <div class="form-group inline-row">
+              <div>
+                <label class="form-label">
+                  <span class="main">Title</span>
+                  <span class="helper">Mr / Ms / Mrs / Family</span>
+                </label>
+                <select id="title-select">
+                  <option value="">(Không chọn)</option>
+                  <option value="Mr">Mr</option>
+                  <option value="Ms">Ms</option>
+                  <option value="Mrs">Mrs</option>
+                  <option value="Family">Family</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-label">
+                  <span class="main">Ngôn ngữ</span>
+                  <span class="helper">VI / EN / RU</span>
+                </label>
+                <select id="lang-select">
+                  <option value="vi">VI</option>
+                  <option value="en">EN</option>
+                  <option value="ru">RU</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="lang-row">
+              <div class="form-label">
+                <span class="main">Chọn nhanh ngôn ngữ</span>
+                <span class="helper">(Tùy chọn)</span>
+              </div>
+              <div class="lang-chip-row">
+                <button type="button" class="lang-chip active" data-lang="vi">VI</button>
+                <button type="button" class="lang-chip" data-lang="en">EN</button>
+                <button type="button" class="lang-chip" data-lang="ru">RU</button>
+              </div>
+            </div>
+
+            <div class="preview-block">
+              <div class="preview-label">Xem trước lời mời</div>
+              <div class="preview-text" id="preview-text">
+                Trân trọng kính mời <strong>GUEST NAME</strong>
+              </div>
+            </div>
+
+            <p class="small-note">
+              Lưu ý: Các link được tạo sẽ dùng tham số <code>?guest=...</code>, <code>&title=...</code>, <code>&lang=...</code>
+              giống như bạn đã cấu hình ở <code>index.html</code> và <code>wedding-detail.html</code>.
+            </p>
+          </div>
+
+          <!-- PANEL LINKS -->
+          <div class="panel">
+            <div class="panel-title">
+              <span class="icon">🔗</span>
+              <span>Link được tạo</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                <span class="main">Base URL (tự động)</span>
+                <span class="helper">Có thể chỉnh nếu deploy vào domain khác</span>
+              </label>
+              <input type="text" id="base-url-input" />
+            </div>
+
+            <div class="link-block">
+              <div class="link-label">Link TRANG BÌA (index.html)</div>
+              <div class="link-row">
+                <div class="link-input" id="index-link-display"></div>
+                <button class="btn-copy" type="button" data-copy-target="index-link-display">
+                  <span>Copy</span>
+                  <span>📋</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="link-block">
+              <div class="link-label">Link BOARDING PASS (wedding-detail.html)</div>
+              <div class="link-row">
+                <div class="link-input" id="detail-link-display"></div>
+                <button class="btn-copy" type="button" data-copy-target="detail-link-display">
+                  <span>Copy</span>
+                  <span>📋</span>
+                </button>
+              </div>
+            </div>
+
+            <p class="small-note">
+              Gợi ý: Bạn có thể tạo từng khách, copy link và gửi qua Zalo/Facebook/Messenger tuỳ ý.
+              Khách bấm vào sẽ tự động hiện đúng tên trong cả trang bìa và boarding pass. ✨
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast copy -->
+  <div class="toast" id="toast">Đã copy link vào clipboard ✨</div>
+
+  <script>
+    const guestInput = document.getElementById('guest-name-input');
+    const titleSelect = document.getElementById('title-select');
+    const langSelect = document.getElementById('lang-select');
+    const langChips = document.querySelectorAll('.lang-chip');
+    const previewText = document.getElementById('preview-text');
+
+    const baseUrlInput = document.getElementById('base-url-input');
+    const indexDisplay = document.getElementById('index-link-display');
+    const detailDisplay = document.getElementById('detail-link-display');
+    const toast = document.getElementById('toast');
+
+    // Khởi tạo base URL: lấy origin + path thư mục + index.html
+    (function initBaseUrl() {
+      const { origin, pathname } = window.location;
+      const basePath = pathname.replace(/[^\/]+$/, ''); // bỏ tên file admin.html
+      const baseIndex = origin + basePath + 'index.html';
+      baseUrlInput.value = baseIndex;
+    })();
+
+    // Text lời mời theo ngôn ngữ
+    function getInvitePrefix(lang) {
+      switch (lang) {
+        case 'en':
+          return 'We warmly invite';
+        case 'ru':
+          return 'С тёплым приглашением для';
+        default:
+          return 'Trân trọng kính mời';
+      }
+    }
+
+    function updatePreview() {
+      const guest = guestInput.value.trim();
+      const title = titleSelect.value;
+      const lang = langSelect.value || 'vi';
+
+      const prefix = getInvitePrefix(lang);
+
+      let nameDisplay = guest || 'GUEST NAME';
+      if (title) {
+        nameDisplay = title + ' ' + nameDisplay;
+      }
+
+      previewText.innerHTML = `${prefix} <strong>${nameDisplay}</strong>`;
+    }
+
+    function buildLinks() {
+      const baseIndex = baseUrlInput.value.trim() || 'index.html';
+      // suy ra wedding-detail từ baseIndex
+      let detailBase;
+      try {
+        const urlObj = new URL(baseIndex);
+        detailBase = urlObj.origin + urlObj.pathname.replace(/index\.html?$/i, 'wedding-detail.html');
+      } catch {
+        // nếu không phải full URL, dùng relative
+        detailBase = 'wedding-detail.html';
+      }
+
+      const guest = guestInput.value.trim();
+      const title = titleSelect.value;
+      const lang = langSelect.value || 'vi';
+
+      const params = new URLSearchParams();
+      if (guest) params.set('guest', guest);
+      if (title) params.set('title', title);
+      if (lang) params.set('lang', lang);
+
+      const query = params.toString();
+
+      const indexLink = query ? `${baseIndex.split('#')[0].split('?')[0]}?${query}` : baseIndex;
+      const detailLink = query ? `${detailBase.split('#')[0].split('?')[0]}?${query}` : detailBase;
+
+      indexDisplay.textContent = indexLink;
+      detailDisplay.textContent = detailLink;
+    }
+
+    function refreshAll() {
+      updatePreview();
+      buildLinks();
+    }
+
+    guestInput.addEventListener('input', refreshAll);
+    titleSelect.addEventListener('change', refreshAll);
+    langSelect.addEventListener('change', () => {
+      // sync với chips
+      const currentLang = langSelect.value;
+      langChips.forEach(chip => {
+        chip.classList.toggle('active', chip.dataset.lang === currentLang);
+      });
+      refreshAll();
+    });
+
+    baseUrlInput.addEventListener('input', buildLinks);
+
+    langChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const lang = chip.dataset.lang;
+        langSelect.value = lang;
+        langChips.forEach(c => c.classList.toggle('active', c === chip));
+        refreshAll();
+      });
+    });
+
+    // Copy link
+    document.querySelectorAll('.btn-copy').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const targetId = btn.getAttribute('data-copy-target');
+        const el = document.getElementById(targetId);
+        if (!el) return;
+        const text = el.textContent.trim();
+        if (!text) return;
+
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            // fallback
+            const temp = document.createElement('textarea');
+            temp.value = text;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+          }
+          showToast('Đã copy link vào clipboard ✨');
+        } catch (err) {
+          console.error('Copy failed:', err);
+          showToast('Không copy được, hãy copy thủ công nhé 🙏');
+        }
+      });
+    });
+
+    function showToast(msg) {
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 1800);
+    }
+
+    // Khởi tạo lần đầu
+    refreshAll();
+  </script>
+</body>
+</html>
