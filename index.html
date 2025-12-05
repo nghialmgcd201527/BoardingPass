@@ -214,6 +214,7 @@
     .title-names {
       font-family: "Great Vibes", cursive;
       font-size: 2rem;
+      text-align: center;
       line-height: 1.15;
       margin-bottom: 0.2rem;
       color: var(--dark-text);
@@ -227,61 +228,58 @@
     }
 
     .names-sub {
+      text-align: center;
       font-size: 0.85rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--rose-gold);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.8rem;
     }
 
-    /* DÒNG MỜI KHÁCH NỔI BẬT --------------------------------- */
-    .guest-line {
-      display: none;
-      margin-bottom: 1rem;
-    }
-
-    .guest-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.45rem 0.9rem;
+    /* DÒNG TRÂN TRỌNG KÍNH MỜI – nổi bật */
+    .invite-pill {
+      display: block;              /* luôn chiếm nguyên dòng */
+      margin: 0 auto 1rem;         /* căn giữa theo chiều ngang */
+      padding: 0.45rem 1rem;
       border-radius: 999px;
-      background: linear-gradient(135deg, rgba(248,201,218,0.9), rgba(255,247,240,0.95));
-      box-shadow: 0 10px 24px rgba(0,0,0,0.12);
-      border: 1px solid rgba(199,146,127,0.5);
+      background: rgba(248, 201, 218, 0.16);
+      border: 1px solid rgba(199, 146, 127, 0.6);
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-align: center;          /* chữ ở giữa */
+      color: var(--dark-text);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.08);
     }
 
-    .guest-icon {
-      font-size: 1.1rem;
-    }
-
-    .guest-text {
-      font-size: 0.98rem;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-
-    #guest-name {
-      margin-left: 0.25rem;
+    .invite-pill .name-highlight {
       color: var(--rose-gold);
+      font-weight: 600;
     }
 
     @media (min-width: 900px) {
       .title-names {
+        text-align: left;
         font-size: 2.7rem;
       }
       .names-sub {
         text-align: left;
       }
+      /* vẫn giữ dòng mời ở giữa */
+      .invite-pill {
+        margin: 0 auto 1rem;
+        text-align: center;
+      }
     }
 
     .question {
       font-size: 1.05rem;
+      text-align: center;
       margin-bottom: 0.35rem;
     }
 
     .question-sub {
       font-size: 0.86rem;
+      text-align: center;
       color: var(--muted-text);
       margin-bottom: 1.3rem;
     }
@@ -289,6 +287,7 @@
     @media (min-width: 900px) {
       .question,
       .question-sub {
+        text-align: left;
         max-width: 420px;
       }
     }
@@ -296,13 +295,13 @@
     /* button area --------------------------------------------- */
     .choice-area {
       display: flex;
-      justify-content: center; /* ở giữa như ban đầu */
+      justify-content: center;
       margin-top: 0.4rem;
     }
 
     @media (min-width: 900px) {
       .choice-area {
-        justify-content: flex-start; /* desktop canh trái như bản gốc */
+        justify-content: center;
       }
     }
 
@@ -427,15 +426,92 @@
       .plane-icon {
         font-size: 3.6rem;
       }
-
-      .guest-text {
-        font-size: 0.9rem;
-      }
     }
 
     @media (min-width: 1200px) {
       body {
         padding: 2.2rem;
+      }
+    }
+
+    /* == EXTRA RESPONSIVE: MÀN HÌNH RẤT NHỎ (iPhone 13 / XR ~ 375px) == */
+    @media (max-width: 400px) {
+      body {
+        padding: 1rem;
+      }
+
+      .cover-card {
+        border-radius: 22px;
+      }
+
+      .cover-left {
+        padding: 1.2rem 1rem 0.3rem;
+      }
+
+      .cover-right {
+        padding: 1rem 1rem 1.3rem;
+      }
+
+      .photo-wrap {
+        min-height: 190px;
+        box-shadow: 0 10px 24px rgba(0,0,0,0.16);
+      }
+
+      .title-names {
+        font-size: 1.8rem;
+      }
+
+      .title-names span.and {
+        font-size: 1.5rem;
+      }
+
+      .names-sub {
+        font-size: 0.78rem;
+        letter-spacing: 0.14em;
+        margin-bottom: 0.6rem;
+      }
+
+      .invite-pill {
+        font-size: 0.82rem;
+        padding: 0.4rem 0.9rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .question {
+        font-size: 0.96rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .question-sub {
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+      }
+
+      .choice-area {
+        margin-top: 0.3rem;
+      }
+
+      .btn-open {
+        width: 100%;
+        justify-content: center;
+        padding: 0.75rem 1.2rem;
+        font-size: 0.86rem;
+      }
+
+      .lang-switch {
+        top: 10px;
+        right: 10px;
+        padding: 0.12rem 0.3rem;
+      }
+
+      .lang-btn {
+        padding: 0.12rem 0.45rem;
+        font-size: 0.7rem;
+      }
+
+      .footer-mini {
+        padding: 0 0.9rem 1rem;
+        font-size: 0.72rem;
       }
     }
   </style>
@@ -481,17 +557,6 @@
         <!-- Cột phải: Nội dung -->
         <div class="cover-right">
           <div>
-            <!-- DÒNG MỜI KHÁCH NỔI BẬT -->
-            <p class="guest-line" id="guest-line">
-              <span class="guest-pill">
-                <span class="guest-icon">🤍</span>
-                <span class="guest-text">
-                  <span data-i18n="guest.prefix"></span>
-                  <span id="guest-name"></span>
-                </span>
-              </span>
-            </p>
-
             <h1 class="title-names">
               Minh Nghĩa
               <span class="and">&amp;</span>
@@ -499,11 +564,16 @@
             </h1>
             <div class="names-sub" data-i18n="names.sub"></div>
 
+            <!-- Dòng trân trọng kính mời -->
+            <p class="invite-pill" id="invite-pill">
+              <!-- set bằng JS -->
+            </p>
+
             <p class="question" data-i18n="question.main"></p>
             <p class="question-sub" data-i18n="question.sub"></p>
 
             <div class="choice-area">
-              <!-- Điều hướng sang wedding-detail, giữ cả lang + guest + title -->
+              <!-- Đổi href sang trang thiệp cưới chi tiết -->
               <a href="wedding-detail.html" class="btn btn-open" id="open-btn">
                 <span data-i18n="btn.open"></span>
                 <span>✈️</span>
@@ -514,6 +584,7 @@
       </div>
 
       <div class="footer-mini" data-i18n="footer.text">
+        <!-- set bằng JS -->
       </div>
     </div>
   </div>
@@ -525,10 +596,9 @@
     const translations = {
       vi: {
         'page.title': 'Thiệp cưới Nghĩa &amp; Hân – Mở thiệp cưới',
-        'names.sub': 'NGÀY CƯỚI CỦA CHÚNG MÌNH',
-        'guest.prefix': 'Trân trọng kính mời',
+        'names.sub': 'NGÀY CƯỚI CỦA CHÚNG TÔI',
         'question.main': 'Thiệp mời lên chuyến bay tình yêu 💌',
-        'question.sub': 'Hãy mở thiệp để xem lời mời và chi tiết ngày cưới của chúng mình nhé.',
+        'question.sub': 'Hãy mở thiệp để xem lời mời và chi tiết ngày cưới của chúng tôi nhé.',
         'btn.open': 'Mở thiệp',
         'footer.text':
           'Gửi lời mời với tất cả yêu thương từ <span class="names-group"><span class="names">Minh Nghĩa</span> &amp; <span class="names">Bảo Hân</span></span>.'
@@ -536,7 +606,6 @@
       en: {
         'page.title': 'Nghia &amp; Han\'s Wedding – Open invitation',
         'names.sub': 'OUR WEDDING DAY',
-        'guest.prefix': 'We warmly invite',
         'question.main': 'Boarding pass for our journey of love 💌',
         'question.sub': 'Open the invitation to see our message and all wedding details.',
         'btn.open': 'Open invitation',
@@ -545,8 +614,7 @@
       },
       ru: {
         'page.title': 'Свадьба Нгиа и Хан – Открыть приглашение',
-        'names.sub': 'НАША СВАДЬБА',
-        'guest.prefix': 'С тёплым приглашением для',
+        'names.sub': 'Свадебная церемония',
         'question.main': 'Приглашение на наш рейс любви 💌',
         'question.sub': 'Откройте приглашение, чтобы увидеть послание и детали свадьбы.',
         'btn.open': 'Открыть приглашение',
@@ -555,43 +623,23 @@
       }
     };
 
-    const STORAGE_KEY = 'weddingPreferredLang';
+    const langButtons = document.querySelectorAll('.lang-btn');
+    const invitePillEl = document.getElementById('invite-pill');
 
-    function getGuestInfo() {
-      const params = new URLSearchParams(window.location.search);
-      const guest = params.get('guest') || '';
-      const rawTitle = (params.get('title') || '').trim().toLowerCase();
+    // Đọc tham số URL
+    const urlParams = new URLSearchParams(window.location.search);
+    let guestName = urlParams.get('guest') || '';
+    let guestTitle = urlParams.get('title') || '';
+    let urlLang = urlParams.get('lang');
+    guestName = guestName.trim();
 
-      let title = '';
-      if (rawTitle === 'mr') title = 'Mr';
-      else if (rawTitle === 'ms') title = 'Ms';
-      else if (rawTitle === 'mrs') title = 'Mrs';
-      else if (rawTitle === 'family') title = 'Family';
-
-      return { guest, title };
-    }
-
-    function updateGuestLine() {
-      const { guest, title } = getGuestInfo();
-      const guestLineEl = document.getElementById('guest-line');
-      const guestNameEl = document.getElementById('guest-name');
-
-      if (!guestLineEl || !guestNameEl) return;
-
-      if (guest) {
-        guestLineEl.style.display = 'block';
-        const displayName = (title ? title + ' ' : '') + guest;
-        guestNameEl.textContent = ' ' + displayName;
-      } else {
-        guestLineEl.style.display = 'none';
-        guestNameEl.textContent = '';
-      }
-    }
+    let currentLang = 'vi';
 
     function setLanguage(lang) {
       const dict = translations[lang];
       if (!dict) return;
 
+      currentLang = lang;
       document.documentElement.setAttribute('lang', lang);
 
       if (dict['page.title']) {
@@ -607,32 +655,100 @@
         }
       });
 
-      localStorage.setItem(STORAGE_KEY, lang);
-
-      // cập nhật lại dòng mời khách (tên giữ nguyên, chỉ đổi câu xưng hô)
-      updateGuestLine();
+      updateInvitePill();
     }
 
-    const langButtons = document.querySelectorAll('.lang-btn');
+    // Tạo text "Trân trọng kính mời..." theo title + lang
+    function getInviteText(lang, title, name) {
+      const safeName = name || '';
+
+      if (lang === 'vi') {
+        let prefix = 'Trân trọng kính mời';
+
+        if (title === 'Mr') {
+          prefix = 'Trân trọng kính mời Anh';
+        } else if (title === 'Ms') {
+          prefix = 'Trân trọng kính mời Chị';
+        } else if (title === 'Mrs') {
+          prefix = 'Trân trọng kính mời Anh Chị';
+        } else if (title === 'Family') {
+          prefix = 'Trân trọng kính mời Gia đình';
+        }
+
+        if (!safeName) {
+          // Không có tên -> generic
+          if (!title) {
+            // người vào thẳng, không có guest/title
+            return 'Trân trọng kính mời Anh Chị';
+          }
+          return prefix;
+        }
+
+        // Có tên
+        return `${prefix} <span class="name-highlight">${safeName}</span>`;
+      }
+
+      // EN / RU
+      let base;
+      if (lang === 'ru') {
+        base = 'Торжественно приглашаем';
+      } else {
+        base = 'We warmly invite';
+      }
+
+      let tail = '';
+
+      if (title === 'Mr' || title === 'Ms' || title === 'Mrs') {
+        if (safeName) {
+          tail = ` ${title} <span class="name-highlight">${safeName}</span>`;
+        } else {
+          tail = ` ${title}`;
+        }
+      } else if (title === 'Family') {
+        if (safeName) {
+          tail = ` the family of <span class="name-highlight">${safeName}</span>`;
+        } else {
+          tail = ` your family`;
+        }
+      } else {
+        if (safeName) {
+          tail = ` <span class="name-highlight">${safeName}</span>`;
+        } else {
+          tail = lang === 'ru' ? ' вас' : ' you';
+        }
+      }
+
+      return `${base}${tail}`;
+    }
+
+    function updateInvitePill() {
+      if (!invitePillEl) return;
+      const text = getInviteText(currentLang, guestTitle, guestName);
+      invitePillEl.innerHTML = text;
+    }
+
+    // Gán click cho language buttons (có cập nhật ?lang= trên URL)
     langButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         const lang = btn.getAttribute('data-lang');
         langButtons.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         setLanguage(lang);
+
+        // cập nhật ?lang= trong URL để truyền sang wedding-detail
+        const params = new URLSearchParams(window.location.search);
+        params.set('lang', lang);
+        const newUrl = window.location.pathname + '?' + params.toString();
+        window.history.replaceState(null, '', newUrl);
       });
     });
 
-    // Áp dụng ngôn ngữ đã lưu (nếu có)
-    const savedLang = localStorage.getItem(STORAGE_KEY) || 'vi';
+    // Ngôn ngữ mặc định: từ URL nếu có, không thì VI
+    const initialLang = (urlLang && translations[urlLang]) ? urlLang : 'vi';
     langButtons.forEach(btn => {
-      if (btn.getAttribute('data-lang') === savedLang) {
-        btn.classList.add('active');
-      } else {
-        btn.classList.remove('active');
-      }
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === initialLang);
     });
-    setLanguage(savedLang); // gọi luôn updateGuestLine() bên trong
+    setLanguage(initialLang);
 
     /* =========================
        HIỆU ỨNG MÁY BAY & ĐI TỚI TRANG CHI TIẾT
@@ -645,23 +761,9 @@
       openBtn.addEventListener('click', (e) => {
         e.preventDefault();
 
-        const rawTarget = openBtn.getAttribute('href') || '#';
-        const currentLang = document.documentElement.getAttribute('lang') || 'vi';
-
-        const url = new URL(rawTarget, window.location.href);
-        // giữ ngôn ngữ
-        url.searchParams.set('lang', currentLang);
-
-        // giữ guest + title
-        const { guest, title } = getGuestInfo();
-        if (guest) {
-          url.searchParams.set('guest', guest);
-        }
-        if (title) {
-          url.searchParams.set('title', title);
-        }
-
-        const finalHref = url.toString();
+        const baseHref = openBtn.getAttribute('href') || 'wedding-detail.html';
+        const search = window.location.search || '';
+        const targetUrl = baseHref + search;
 
         // Hiện overlay
         planeOverlay.classList.add('active');
@@ -680,7 +782,7 @@
 
         // Điều hướng sau khi animation xong
         setTimeout(() => {
-          window.location.href = finalHref;
+          window.location.href = targetUrl;
         }, 1500);
       });
     }

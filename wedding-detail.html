@@ -635,6 +635,14 @@
       font-size: 0.9rem;
     }
 
+    /* Thêm đoạn này */
+    .stub-qr-box .qr-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* QR không bị méo, fit trong khung */
+      border-radius: 12px; /* cho góc bo nhẹ, hoặc bỏ nếu không cần */
+    }
+
     .stub-footer {
       font-size: 0.7rem;
       color: var(--muted-text);
@@ -975,6 +983,203 @@
         text-align: center;
       }
     }
+
+    /* == EXTRA RESPONSIVE: MÀN HÌNH RẤT NHỎ (iPhone 13 / XR ~ 375px) == */
+    @media (max-width: 400px) {
+      body {
+        padding-top: var(--nav-height);
+      }
+
+      header {
+        height: var(--nav-height);
+      }
+
+      .navbar {
+        padding: 0 0.8rem;
+      }
+
+      .nav-logo {
+        font-size: 0.78rem;
+        letter-spacing: 0.06em;
+      }
+
+      .nav-logo span.logo-icon {
+        font-size: 0.9rem;
+      }
+
+      .lang-switch {
+        font-size: 0.7rem;
+      }
+
+      .lang-btn {
+        padding: 0.14rem 0.45rem;
+        font-size: 0.7rem;
+      }
+
+      section {
+        padding: 2rem 0.9rem;
+      }
+
+      #hero {
+        padding-top: 2.4rem;
+        padding-bottom: 2.6rem;
+      }
+
+      .hero-inner {
+        gap: 1rem;
+      }
+
+      .hero-visual {
+        min-height: 200px;
+        box-shadow: 0 12px 26px rgba(0,0,0,0.16);
+      }
+
+      .hero-content {
+        padding: 1.1rem 0.9rem 1.2rem;
+      }
+
+      .hero-line {
+        font-size: 0.78rem;
+      }
+
+      .hero-line + .hero-line {
+        font-size: 0.68rem;
+        letter-spacing: 0.14em;
+      }
+
+      .hero-names {
+        font-size: 2rem;
+      }
+
+      .hero-date-block {
+        padding: 0.5rem 0.85rem;
+        font-size: 0.8rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .hero-tagline {
+        font-size: 0.82rem;
+      }
+
+      .hero-note {
+        font-size: 0.78rem;
+      }
+
+      .btn-primary {
+        width: 100%;
+        justify-content: center;
+        padding: 0.6rem 1rem;
+        font-size: 0.82rem;
+      }
+
+      .btn-secondary-link {
+        font-size: 0.78rem;
+      }
+
+      .boarding-card {
+        border-radius: 18px;
+      }
+
+      .ticket-main,
+      .ticket-stub {
+        padding: 1rem 0.9rem;
+      }
+
+      .ticket-names {
+        font-size: 1.7rem;
+      }
+
+      .ticket-sub {
+        font-size: 0.8rem;
+      }
+
+      .ticket-rows {
+        gap: 0.8rem 0.9rem;
+        font-size: 0.8rem;
+      }
+
+      .ticket-field-label {
+        font-size: 0.7rem;
+      }
+
+      .ticket-field-value {
+        font-size: 0.9rem;
+      }
+
+      .airport-row {
+        margin-top: 1rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .airport-code {
+        font-size: 1.02rem;
+        letter-spacing: 0.14em;
+      }
+
+      .airport-text {
+        font-size: 0.76rem;
+      }
+
+      .flight-board {
+        border-radius: 20px;
+      }
+
+      .flight-board-body {
+        padding: 0.8rem 0.7rem 1rem;
+      }
+
+      .flight-board-table th,
+      .flight-board-table td {
+        padding: 0.5rem 0.35rem;
+        font-size: 0.8rem;
+      }
+
+      .flight-label {
+        font-size: 0.86rem;
+      }
+
+      .flight-label-en {
+        font-size: 0.76rem;
+      }
+
+      .flight-meta {
+        font-size: 0.8rem;
+      }
+
+      .countdown-grid {
+        gap: 0.6rem;
+      }
+
+      .count-box {
+        padding: 0.75rem 0.5rem;
+      }
+
+      .count-value {
+        font-size: 1.15rem;
+      }
+
+      .count-label {
+        font-size: 0.76rem;
+      }
+
+      .countdown-message {
+        font-size: 0.86rem;
+      }
+
+      .countdown-note {
+        font-size: 0.8rem;
+      }
+
+      .love-quote {
+        font-size: 0.82rem;
+      }
+
+      footer {
+        padding: 1.4rem 1.2rem 1.8rem;
+        font-size: 0.74rem;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1163,7 +1368,7 @@
 
                 <div class="stub-qr">
                   <div class="stub-qr-box">
-                    QR
+                    <img src="/QR.jfif" alt="QR thiệp cưới" class="qr-image">
                   </div>
                   <div data-i18n="stub.qrText"></div>
                 </div>
@@ -1316,15 +1521,15 @@
         // HERO
         'hero.badge': 'HẠNG THƯƠNG GIA · ❤️',
         'hero.line1': 'Thiệp mời lên chuyến bay tình yêu',
-        'hero.line2': 'Tấm vé cho hành trình hạnh phúc của chúng mình',
+        'hero.line2': 'Tấm vé cho hành trình hạnh phúc của chúng tôi',
         'hero.date1': 'Ngày cưới: 29/12/2025',
         'hero.date2': 'Thứ Hai, ngày 29 tháng 12 năm 2025',
         'hero.tagline1':
-          'Chúng mình trân trọng mời anh chị và các bạn cùng lên chuyến bay hạng thương gia và đồng hành trong ngày đặc biệt này.',
+          'Chúng tôi trân trọng mời anh chị và các bạn cùng lên chuyến bay hạng thương gia và đồng hành trong ngày đặc biệt này.',
         'hero.tagline2':
           'Sự hiện diện của anh chị và các bạn sẽ làm chuyến bay tình yêu này trở nên ấm áp và trọn vẹn hơn.',
         'hero.note':
-          'Kéo xuống để xem vé mời, lịch trình chi tiết và cùng đếm ngược đến khoảnh khắc chúng mình chính thức nên duyên vợ chồng.',
+          'Kéo xuống để xem vé mời, lịch trình chi tiết và cùng đếm ngược đến khoảnh khắc chúng tôi chính thức nên duyên vợ chồng.',
         'hero.btnPrimary': 'Xem vé mời ✈️',
         'hero.btnSecondary': 'Xem lịch trình',
 
@@ -1335,7 +1540,7 @@
           'Đây là tấm vé mời đặc biệt dành riêng cho anh chị và các bạn – hành khách danh dự trên hành trình mới của Nghĩa &amp; Hân.',
         'boarding.tag': 'ĐÁM CƯỚI · HẠNG THƯƠNG GIA',
         'boarding.subtitle':
-          'Thiệp mời lên chuyến bay tình yêu của chúng mình – nơi anh chị và các bạn luôn có một chỗ ngồi thật ấm áp trong trái tim.',
+          'Thiệp mời lên chuyến bay tình yêu của chúng tôi – nơi anh chị và các bạn luôn có một chỗ ngồi thật ấm áp trong trái tim.',
         'boarding.passengerLabel': 'Hành khách',
         'boarding.passengerPrefix': 'MR / MS',
         'boarding.passengerPlaceholder': 'GUEST NAME',
@@ -1372,47 +1577,47 @@
         'stub.qrText':
           'Quét để xem bản đồ, lộ trình di chuyển và thông tin chi tiết về buổi tiệc.',
         'stub.footer':
-          'Vé mời không cần in. Chỉ cần mang theo nụ cười, trái tim ấm áp và đến chia vui cùng chúng mình.',
+          'Vé mời không cần in. Chỉ cần mang theo nụ cười, trái tim ấm áp và đến chia vui cùng chúng tôi.',
 
         // DETAILS
         'details.title1': 'Thông tin sự kiện',
         'details.title2': 'Bảng thông tin chuyến bay',
         'details.desc':
-          'Hãy kiểm tra “bảng điện tử” dưới đây để không bỏ lỡ bất kỳ khoảnh khắc quan trọng nào trong ngày cưới của chúng mình.',
+          'Hãy kiểm tra “bảng điện tử” dưới đây để không bỏ lỡ bất kỳ khoảnh khắc quan trọng nào trong ngày cưới của chúng tôi.',
         'details.boardHeader': 'LOVE AIRLINES · CHUYẾN BAY TÌNH YÊU',
         'details.thEvent': 'Sự kiện',
         'details.thTime': 'Thời gian',
         'details.thLocation': 'Địa điểm',
         'details.arrival.name': 'Đón khách',
         'details.arrival.sub': '',
-        'details.arrival.time': '17:30 · Chiều',
+        'details.arrival.time': '5:30 PM',
         'details.arrival.location':
           'Sảnh chính Almaz Convention Center',
         'details.ceremony.name': 'Lễ cưới',
         'details.ceremony.sub': '',
-        'details.ceremony.time': '18:30 · Chiều',
-        'details.ceremony.location': 'Phòng tiệc Queen',
+        'details.ceremony.time': '6:30 PM',
+        'details.ceremony.location': 'Phòng tiệc Princess',
         'details.reception.name': 'Tiệc cưới',
         'details.reception.sub': '',
-        'details.reception.time': '18:30 – 21:30',
+        'details.reception.time': '7:00 PM',
         'details.reception.location':
-          'Almaz Convention Center, Long Biên, Hà Nội',
+          'Phòng tiệc Princess',
 
         // COUNTDOWN
         'count.title1': 'Đếm ngược đến ngày cưới',
         'count.title2': 'Chuyến bay đang chuẩn bị cất cánh',
         'count.desc':
-          'Mỗi ngày trôi qua, chúng mình lại gần hơn một bước đến khoảnh khắc được gọi nhau là “vợ chồng”.',
+          'Mỗi ngày trôi qua, chúng tôi lại gần hơn một bước đến khoảnh khắc được gọi nhau là “vợ chồng”.',
         'count.daysLabel': 'Ngày<span class="en"></span>',
         'count.hoursLabel': 'Giờ<span class="en"></span>',
         'count.minutesLabel': 'Phút<span class="en"></span>',
         'count.secondsLabel': 'Giây<span class="en"></span>',
         'count.message':
-          'Chuyến bay tình yêu đang đếm ngược, chúng mình rất mong được gặp anh chị và các bạn!',
+          'Chuyến bay tình yêu đang đếm ngược, chúng tôi rất mong được gặp anh chị và các bạn!',
         'count.messageToday':
-          'Hôm nay là ngày cưới của chúng mình! 💒',
+          'Hôm nay là ngày cưới của chúng tôi! 💒',
         'count.note':
-          'Cảm ơn anh chị và các bạn vì đã là một phần trong hành trình của chúng mình. Sự hiện diện của anh chị và các bạn sẽ làm ngày cưới trở nên trọn vẹn hơn.',
+          'Cảm ơn anh chị và các bạn vì đã là một phần trong hành trình của chúng tôi. Sự hiện diện của anh chị và các bạn sẽ làm ngày cưới trở nên trọn vẹn hơn.',
         'count.quote':
           '“Tình yêu không phải là nhìn nhau, mà là cùng nhìn về một hướng.”',
 
@@ -1420,7 +1625,7 @@
         'footer.textTop':
           'Với tất cả yêu thương từ Minh Nghĩa &amp; Bảo Hân gửi đến gia đình và bạn bè.',
         'footer.textBottom':
-          'Cảm ơn vì đã đồng hành và sẻ chia niềm vui cùng chúng mình.'
+          'Cảm ơn vì đã đồng hành và sẻ chia niềm vui cùng chúng tôi.'
       },
 
       en: {
@@ -1507,10 +1712,10 @@
         'details.ceremony.name': 'Wedding Ceremony',
         'details.ceremony.sub': '',
         'details.ceremony.time': '6:30 PM',
-        'details.ceremony.location': 'Queen Room',
+        'details.ceremony.location': 'Princess Room',
         'details.reception.name': 'Wedding Reception',
         'details.reception.sub': '',
-        'details.reception.time': '6:30 PM – 9:30 PM',
+        'details.reception.time': '7:00 PM',
         'details.reception.location':
           'Almaz Convention Center, Long Bien, Ha Noi',
 
@@ -1552,9 +1757,9 @@
         'hero.date1': 'Дата свадьбы: 29.12.2025',
         'hero.date2': 'Понедельник, 29 декабря 2025 года',
         'hero.tagline1':
-          'Мы с тёплой радостью приглашаем вас на наш “рейс любви” бизнес-класса, чтобы вместе отпраздновать этот особенный день.',
+          'С искренней теплотой и радостью приглашаем вас стать свидетелями и разделить с нами начало нашего самого главного совместного путешествия.',
         'hero.tagline2':
-          'Ваше присутствие сделает это путешествие ещё теплее и счастливее.',
+          'Ваше тепло и поддержка сделают этот день по-настоящему незабываемым.',
         'hero.note':
           'Прокрутите вниз, чтобы увидеть посадочный талон, расписание свадебного дня и вместе с нами вести обратный отсчёт.',
         'hero.btnPrimary': 'Посмотреть талон ✈️',
@@ -1623,10 +1828,10 @@
         'details.ceremony.name': 'Церемония',
         'details.ceremony.sub': '',
         'details.ceremony.time': '18:30',
-        'details.ceremony.location': 'Зал Queen',
+        'details.ceremony.location': 'Зал Princess',
         'details.reception.name': 'Свадебный банкет',
         'details.reception.sub': '',
-        'details.reception.time': '18:30 – 21:30',
+        'details.reception.time': '19:00',
         'details.reception.location':
           'Almaz Convention Center, Лонг Биен, Ханой',
 
@@ -1732,15 +1937,18 @@
       const { guest, titleCode } = getGuestInfo();
 
       if (guest) {
+        // Có tên khách
         passengerNameEl.textContent = ' ' + guest.toUpperCase();
-        if (titleCode) {
-          passengerPrefixEl.textContent = titleCode;
-        } else {
-          passengerPrefixEl.textContent = fallbackPrefix;
-        }
+        passengerPrefixEl.textContent = titleCode || fallbackPrefix;
+      } else if (titleCode) {
+        // Có title nhưng không có tên (hiếm)
+        passengerPrefixEl.textContent = titleCode;
+        passengerNameEl.textContent = '';
       } else {
-        passengerPrefixEl.textContent = '';
-        passengerNameEl.textContent = placeholder;
+        // Không guest, không title → vào thẳng wedding-detail
+        // Hiện mặc định "MR / MS"
+        passengerPrefixEl.textContent = fallbackPrefix;
+        passengerNameEl.textContent = '';
       }
     }
 
@@ -1776,6 +1984,12 @@
 
       // lưu lại lựa chọn
       localStorage.setItem(STORAGE_KEY, lang);
+
+      // cập nhật ?lang= trên URL
+      const params = new URLSearchParams(window.location.search);
+      params.set('lang', lang);
+      const newUrl = window.location.pathname + '?' + params.toString();
+      window.history.replaceState(null, '', newUrl);
 
       // cập nhật Passenger airline style
       updatePassengerLine();
